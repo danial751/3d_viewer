@@ -1480,6 +1480,41 @@
 .stable-ar .ar-layer-lock,.stable-ar .ar-layer-size{width:28px;height:30px;min-width:28px;min-height:30px;padding:0;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;background:#26303bd9;color:#dfe9f5;font-size:13px;font-weight:800;}
 .stable-ar .ar-layer-lock.on{background:#c98a56;color:#17181a;}
 .stable-ar .ar-layer-size.on{background:#3d6fa8;color:#fff;}
+.stable-ar .ar-layer-eye{width:28px;height:30px;min-width:28px;min-height:30px;padding:0;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;background:#26303bd9;color:#dfe9f5;}
+.stable-ar .ar-layer-eye.off{background:#4a3434d9;color:#ffb4b4;}
+.stable-ar .ar-layer.hidden-obj{opacity:.5;text-decoration:line-through;}
+/* v3: no blur over the live camera (it made taps late and the phone slow), bigger and better spaced layer buttons */
+.stable-ar button,.stable-ar .ar-layers,.stable-ar .ar-message,.stable-ar .ar-pick,.stable-ar .ar-materials,.stable-ar .ar-loader{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.stable-ar .ar-layers.ar-layers{width:min(252px,70vw)!important;max-height:46vh!important;touch-action:pan-y;background:#111820f2;padding:10px}
+.stable-ar .ar-layers .ar-layer-row{gap:8px!important;margin:0 0 10px!important;padding-bottom:10px;border-bottom:1px solid #ffffff1c}
+.stable-ar .ar-layers .ar-layer-row .ar-layer{flex:1 0 100%!important;min-height:42px;font-size:13px}
+.stable-ar .ar-layers .ar-layer-eye,.stable-ar .ar-layers .ar-layer-lock,.stable-ar .ar-layers .ar-layer-size,.stable-ar .ar-layers .ar-layer-delete{width:46px!important;height:44px!important;min-width:46px!important;min-height:44px!important;border-radius:12px!important;touch-action:manipulation}
+.stable-ar .ar-layers .ar-layer-eye svg,.stable-ar .ar-layers .ar-layer-lock svg{width:20px;height:20px}
+.stable-ar .ar-layers .ar-size-line{flex:1 0 100%}
+.stable-ar .ar-layers.is-closed{display:none!important}
+.stable-ar .ar-hand-preview{position:absolute;z-index:6;left:10px;bottom:calc(168px + env(safe-area-inset-bottom));width:128px;min-width:128px;min-height:0;padding:0;border:2px solid #ffd28b;border-radius:10px;overflow:hidden;background:#000;display:block}
+.stable-ar .ar-hand-preview canvas{position:static!important;inset:auto;display:block;width:100%;height:auto;pointer-events:none}
+.stable-ar .ar-hand-preview span{display:block;font:600 10px/1.3 system-ui;padding:3px 5px;background:#111820;color:#ffe0b9;text-align:left;pointer-events:none}
+.stable-ar .ar-pick .ar-pick-view.picked{background:#c98a56;color:#17181a;font-weight:700}
+.stable-ar .ar-pick .ar-pick-view small{display:block;font-weight:500;opacity:.75;font-size:11px;margin-top:2px;white-space:normal}
+.stable-ar .ar-pick .ar-pick-view span.ar-tbl-text{flex:1;min-width:0;text-align:left;white-space:normal}
+.stable-ar .ar-pick .ar-param{display:flex;align-items:center;gap:8px;margin:8px 4px;font-size:12px;color:#dfe9f5}
+.stable-ar .ar-pick .ar-param label{width:50px;flex:none}
+.stable-ar .ar-pick .ar-param input[type=range]{flex:1;min-width:0;pointer-events:auto;touch-action:pan-x}
+.stable-ar .ar-pick .ar-param output{width:64px;text-align:right;flex:none;font-variant-numeric:tabular-nums}
+.stable-ar .ar-pick .ar-pick-small{display:inline-block;width:auto;padding:7px 12px;margin:2px 4px 8px;font-size:12px;text-align:center}
+@media (pointer:coarse){
+.layer-float.layer-float .ly-eye,.layer-float.layer-float .ly-twist{width:38px!important;height:38px!important;font-size:17px!important}
+.layer-float.layer-float .ly-mini{width:36px!important;height:36px!important;font-size:13px!important;border-radius:10px!important}
+.layer-float.layer-float .ly-actions{gap:9px!important}
+.layer-float.layer-float .ly-name-row{gap:8px!important;margin-bottom:9px!important}
+.layer-float.layer-float .ly-card{padding:8px 6px!important;margin-bottom:10px!important}
+.layer-float.layer-float .ly-tools{gap:9px!important}
+.layer-float.layer-float .ly-tools button{min-height:36px!important}
+.layer-float.layer-float .ly-tools button.ly-ico{width:40px!important;height:40px!important}
+.layer-float.layer-float .ly-chk{width:22px!important;height:22px!important;margin-right:10px!important}
+.layer-float.layer-float .ly-close{width:38px!important;height:38px!important}
+}
 .stable-ar .ar-size-line{flex:0 0 100%;font-size:11px;line-height:1.35;color:#cfe3ff;padding:0 4px 3px;}
 .stable-ar .ar-size-line[hidden]{display:none;}
 /* add-model chooser */
@@ -1537,6 +1572,16 @@
 @media(max-width:600px){.stable-ar .ar-tools button svg{width:19px;height:19px;flex-basis:19px}.stable-ar .ar-adjust button{width:41px;height:41px;min-width:41px;min-height:41px;border-radius:14px}.stable-ar .ar-adjust button svg{width:20px;height:20px}}
 
 
+
+.stable-ar{--ar-top:max(34px,calc(env(safe-area-inset-top,0px) + 16px));--ar-toolbar-bottom:100px;}
+.stable-ar .ar-tools{top:var(--ar-top)!important;left:max(8px,env(safe-area-inset-left,0px))!important;right:max(8px,env(safe-area-inset-right,0px))!important;flex-wrap:wrap!important;max-width:none!important;}
+.stable-ar .ar-layers.ar-layers,.stable-ar .ar-materials,.stable-ar .ar-tip{top:var(--ar-toolbar-bottom)!important;max-height:calc(100dvh - var(--ar-toolbar-bottom) - 180px)!important;}
+.stable-ar.ar-ui-hidden .ar-reveal-controls{top:var(--ar-top)!important;}
+.ar-preflight{position:fixed;inset:0;z-index:2147483500;background:#000b;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 20px) 12px calc(env(safe-area-inset-bottom,0px) + 20px);}
+.ar-preflight-card{width:min(440px,100%);max-height:100%;overflow:auto;background:var(--surface);color:var(--text);padding:18px;border:1px solid var(--border);border-radius:18px;display:flex;flex-direction:column;gap:12px;}
+.ar-preflight-card>button{padding:12px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--text);font:inherit;cursor:pointer;}
+.ar-preflight-card .object-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+.ar-preflight-card .object-card{position:static;min-height:70px;}
 </style>
 </head>
 
@@ -1613,6 +1658,8 @@
     const paths = {
       gridPlus:'<rect x="4" y="4" width="7" height="7" rx="1.5"></rect><rect x="13" y="4" width="7" height="7" rx="1.5"></rect><rect x="4" y="13" width="7" height="7" rx="1.5"></rect><path d="M16.5 13.8v5.4M13.8 16.5h5.4"></path>',
       cubePlus:'<path d="m12 3.8 7 3.9v8.4L12 20.2l-7-3.9V7.7z"></path><path d="M12 3.8v8.4M12 12.2l7-3.9M12 12.2l-7-3.9"></path>',
+      arLayers:'<path d="M12 3.2 3.2 8 12 12.8 20.8 8z"></path><path d="m3.2 12 8.8 4.8 8.8-4.8"></path><path d="m3.2 16 8.8 4.8 8.8-4.8"></path>',
+      arHand:'<path d="M8 13V6.6a1.5 1.5 0 0 1 3 0V12"></path><path d="M11 11V4.6a1.5 1.5 0 0 1 3 0V12"></path><path d="M14 11.4V6.8a1.5 1.5 0 0 1 3 0v7.6c0 3.9-2.5 6.6-6 6.6-2.7 0-4.2-1.3-5.4-3.3l-1.9-3.4a1.4 1.4 0 0 1 2.3-1.6L8 14.6"></path>',
       arFolder:'<path d="M3.5 7.5a2 2 0 0 1 2-2h4l2 2h6.9a2 2 0 0 1 2 2v8.8a2.2 2.2 0 0 1-2.2 2.2H5.7a2.2 2.2 0 0 1-2.2-2.2z"></path><path d="M3.8 10h16.4"></path><path d="M12 12.2v5M9.5 14.7h5"></path>',
       arMove:'<path d="M12 3v18M3 12h18"></path><path d="m8.5 6.5 3.5-3.5 3.5 3.5M8.5 17.5 12 21l3.5-3.5M6.5 8.5 3 12l3.5 3.5M17.5 8.5 21 12l-3.5 3.5"></path>',
       arPlace:'<circle cx="12" cy="12" r="7.4"></circle><circle cx="12" cy="12" r="2.1"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>',
@@ -2534,7 +2581,7 @@
     try{
       safeState=structuredClone({...state,
         views:state.views?{paneCount:state.views.paneCount,slots:(state.views.slots||[]).map(view=>({
-          pane:view.pane,index:view.index,active:view.active,sourceBlob:view.sourceBlob,name:view.name,orbit:view.orbit,target:view.target,fov:view.fov,
+          pane:view.pane,index:view.index,active:view.active,sourceBlob:view.sourceBlob,name:view.name,orbit:view.orbit,target:view.target,fov:view.fov,attrs:view.attrs,
           layers:(view.layers||[]).map(layer=>({uuid:layer.uuid,name:layer.name,hidden:!!layer.hidden})),
           groups:(view.groups||[]).map(g=>({id:g.id,name:g.name,parent:g.parent||null,uuids:(g.uuids||[]).map(String),collapsed:!!g.collapsed,hidden:!!g.hidden}))
         }))}:null,
@@ -2570,6 +2617,33 @@
     });
     arStorageWork=erase.catch(err=>console.warn('Could not discard AR backup',err));return arStorageWork;
   }
+  const SITE_KEY='site';
+  function arSiteWrite(data){
+    const w=arStorageWork.then(async()=>{
+      const db=await arStore();
+      try{await new Promise((resolve,reject)=>{const tx=db.transaction('sessions','readwrite');tx.objectStore('sessions').put({state:data,at:Date.now()},SITE_KEY);tx.oncomplete=resolve;tx.onerror=tx.onabort=()=>reject(tx.error||new Error('Site snapshot aborted'));});return true;}finally{db.close();}
+    });
+    arStorageWork=w.catch(err=>{console.warn('Could not save site snapshot',err);return false;});return arStorageWork;
+  }
+  async function arSiteRead(){
+    await arStorageWork;
+    try{const db=await arStore();try{return await new Promise((resolve,reject)=>{const rq=db.transaction('sessions','readonly').objectStore('sessions').get(SITE_KEY);rq.onsuccess=()=>resolve(rq.result||null);rq.onerror=()=>reject(rq.error);});}finally{db.close();}}catch(_){return null;}
+  }
+  function arSiteDelete(){
+    const e=arStorageWork.then(async()=>{const db=await arStore();try{await new Promise((resolve,reject)=>{const tx=db.transaction('sessions','readwrite');tx.objectStore('sessions').delete(SITE_KEY);tx.oncomplete=resolve;tx.onerror=tx.onabort=()=>reject(tx.error);});}finally{db.close();}});
+    arStorageWork=e.catch(err=>console.warn('Could not clear site snapshot',err));return arStorageWork;
+  }
+  /* After AR closes: if any view lost its model (page was discarded or its graphics context died), rebuild ALL views silently. */
+  async function arAfterExit(){
+    try{
+      const saved=await arSiteRead(),views=saved?.state?.views;
+      if(!views?.slots?.length)return;
+      const healthy=()=>views.slots.every(rec=>{const sl=panes[rec.pane]?.slots[rec.index];return !!(sl&&sl.viewer&&sl.viewer.src&&sl.viewer.loaded);});
+      for(let i=0;i<7&&!healthy();i++)await new Promise(r=>setTimeout(r,700));
+      if(!healthy()){await restoreARViews({views,items:[],queue:[]});}
+    }catch(err){console.warn('AR exit check',err);}
+    setTimeout(()=>arSiteDelete(),6000);
+  }
   async function captureARViews(activeSlot){
     const slots=[];
     for(let pi=0;pi<panes.length;pi++)for(let si=0;si<panes[pi].slots.length;si++){
@@ -2579,7 +2653,9 @@
       slots.push({pane:pi,index:si,active:slot===activeSlot,sourceBlob,name:slot.fileNameEl?.textContent||'Recovered model',
         layers:layerSnapshot(slot,{carry:'none'}),
         groups:grpList(slot).map(g=>({id:g.id,name:g.name,parent:g.parent||null,uuids:(g.uuids||[]).slice(),collapsed:!!g.collapsed,hidden:!!g.hidden})),
-        orbit:v.getCameraOrbit?.().toString(),target:v.getCameraTarget?.().toString(),fov:v.getFieldOfView?.()});
+        orbit:v.getCameraOrbit?.().toString(),target:v.getCameraTarget?.().toString(),fov:v.getFieldOfView?.(),
+        attrs:(()=>{const o={};['exposure','shadow-intensity','shadow-softness','tone-mapping'].forEach(k=>{const val=v.getAttribute(k);if(val!=null)o[k]=val;});['environment-image','skybox-image'].forEach(k=>{const val=v.getAttribute(k);if(val&&!/^blob:/.test(val))o[k]=val;});return o;})()});
+      await new Promise(r=>setTimeout(r,40));
     }
     return {paneCount,slots};
   }
@@ -2611,6 +2687,7 @@
       if(record.orbit)slot.viewer.cameraOrbit=record.orbit;
       if(record.target)slot.viewer.cameraTarget=record.target;
       if(record.fov)slot.viewer.fieldOfView=record.fov+'deg';
+      if(record.attrs)for(const [k,val] of Object.entries(record.attrs))try{slot.viewer.setAttribute(k,val);}catch(_){}
       if(record.active)active=slot;
     }
     return active||panes[0]?.slots[0];
@@ -2630,13 +2707,16 @@
     slot._arPending=staged;
     const stagedSaved=await arCheckpoint(staged);if(slot._arFileJob!==job)return null;
     if(!stagedSaved)throw new Error('Recovery storage is unavailable or full. Previous models are still saved.');
-    const packed=await convertARFiles(files);
+    const converted=await convertARFiles(files);
     if(slot._arFileJob!==job)return null;
+    const packed=await prepareARSupport(converted);
+    if(slot._arFileJob!==job)return null;
+    if(!packed){slot._arPending={...state,pendingFiles:[],phase:'ready'};await arCheckpoint(slot._arPending);showHandoff(slot,'New model cancelled. Previous models are saved.');setHandoffResumeAction(slot);handoffFail(slot);return null;}
     const ready={...staged,pendingFiles:[],queue:[...(state.queue||[]),packed],phase:'ready'};
     const readySaved=await arCheckpoint(ready);if(slot._arFileJob!==job)return null;
     if(!readySaved)throw new Error('Could not save the new model. Keep this page open and retry.');
     slot._arPending=ready;slot._arResumeState=null;slot._arPickerPending=false;
-    showHandoff(slot,'Previous models and the new file are saved. Continue in AR.');setHandoffResumeAction(slot);handoffFail(slot);
+    enterPreparedAR(slot,ready,'Previous models and the new file are saved. Preparing AR…');
     return ready;
   }
   function prepareARFilePicker(slot,state){
@@ -2702,6 +2782,19 @@
     const b=cover.querySelector('.ar-handoff-go');b.textContent='Continue in AR';
     b.onclick=()=>{const state=slot._arPending||slot._arResumeState;b.hidden=true;handoffSet(slot,'Restarting AR…',null);if(state)launchAR(slot,state);else hideHandoff(slot);};
   }
+  function enterPreparedAR(slot,state,label){
+    slot._arPending=state;showHandoff(slot,label);setHandoffResumeAction(slot);handoffFail(slot);
+    // The final table-choice gesture can start XR directly. If browser activation
+    // has expired during model preparation, retain one explicit Continue action.
+    if(navigator.xr&&navigator.userActivation?.isActive){
+      navigator.xr.isSessionSupported('immersive-ar').then(supported=>{
+        if(supported&&slot._arPending===state&&slot._arCover&&navigator.userActivation?.isActive&&!slot._arActive){
+          slot._arCover.querySelector('.ar-handoff-go').hidden=true;
+          launchAR(slot,state).catch(err=>{showToast(err.message);if(slot._arCover)handoffFail(slot,err.message);});
+        }
+      }).catch(()=>{});
+    }
+  }
   function hideHandoff(slot){
     const c=slot._arCover; if(c){ try{ c.remove(); }catch(_){} }
     slot._arCover=null; slot._arPending=null;
@@ -2751,16 +2844,68 @@
     const name=entries.length===1?(entries[0].name||(entries[0].type==='group'?grpById(slot,entries[0].id)?.name:[...chosen][0].name)||'Selected layer'):'Selected layers and groups';
     return {sourceBlob:new Blob([data],{type:'model/gltf-binary'}),name};
   }
+  function chooseARSupport(name){
+    return new Promise(resolve=>{
+      const dialog=document.createElement('div');dialog.className='ar-preflight';
+      dialog.setAttribute('role','dialog');dialog.setAttribute('aria-modal','true');dialog.setAttribute('aria-label','Table for the new model');
+      const card=document.createElement('section');card.className='ar-preflight-card';dialog.appendChild(card);
+      const previous=document.activeElement;
+      const done=value=>{document.removeEventListener('keydown',keys);dialog.remove();previous?.focus();resolve(value);};
+      const button=(label,fn)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=fn;return b;};
+      const keys=e=>{if(e.key==='Escape'){e.preventDefault();done(undefined);}if(e.key==='Tab'){const nodes=[...card.querySelectorAll('button:not([disabled]),input')],first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}};
+      document.addEventListener('keydown',keys);document.body.appendChild(dialog);
+      const question=()=>{
+        card.replaceChildren();const h=document.createElement('h3');h.textContent='Do you need a table for “'+name+'”?';card.appendChild(h);
+        card.append(button('Yes, choose a table',gallery),button('No, continue without a table',()=>done(null)),button('Cancel',()=>done(undefined)));
+        card.querySelector('button').focus();
+      };
+      const gallery=()=>{
+        card.replaceChildren();const h=document.createElement('h3');h.textContent='Objects · tables and stands';card.appendChild(h);
+        const grid=document.createElement('div');grid.className='object-grid';card.appendChild(grid);
+        let key=null,height=null,margin=1.16;
+        const ok=button('Continue with this table',()=>done({key,params:{height,margin}}));ok.disabled=true;
+        Object.entries(OBJECT_DEFS).filter(([,def])=>!def.todo).forEach(([id,def])=>{
+          const b=button('',()=>{key=id;grid.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x.dataset.object===id));ok.disabled=false;});
+          b.className='object-card';b.dataset.object=id;b.setAttribute('aria-label',def.name);b.title=def.desc;
+          b.innerHTML='<div class="preview">'+objectPreviewSVG(def.icon)+'</div><div class="name">'+def.short+'</div>';grid.appendChild(b);
+        });
+        const row=(text,min,max,value,change)=>{const label=document.createElement('label');label.className='param-row';label.append(document.createTextNode(text));const input=document.createElement('input');input.type='range';input.min=min;input.max=max;input.value=value;input.setAttribute('aria-label',text);const out=document.createElement('output');input.oninput=()=>change(input,out);label.append(input,out);card.appendChild(label);return {input,out};};
+        const hr=row('Height',5,150,95,(i,o)=>{height=Number(i.value)/100;o.textContent=i.value+' cm';});hr.out.textContent='Auto';
+        const mr=row('Width',105,220,116,(i,o)=>{margin=Number(i.value)/100;o.textContent=i.value+'%';});mr.out.textContent='116%';
+        card.append(button('Auto (from model)',()=>{height=null;margin=1.16;hr.input.value=95;hr.out.textContent='Auto';mr.input.value=116;mr.out.textContent='116%';}),button('Remove base',()=>done(null)),ok,button('Back',question));grid.querySelector('button')?.focus();
+      };
+      question();
+    });
+  }
+  async function prepareARSupport(item){
+    const support=await chooseARSupport(item.name||'New model');
+    if(support===undefined)return null;
+    if(!support)return {...item,preflightDone:true};
+    const THREE=await libImport('three');
+    const {GLTFLoader}=await libImport('three/addons/loaders/GLTFLoader.js');
+    const {GLTFExporter}=await libImport('three/addons/exporters/GLTFExporter.js');
+    const {scene:model}=await new GLTFLoader().parseAsync(await item.sourceBlob.arrayBuffer(),'');
+    model.updateMatrixWorld(true);
+    const box=new THREE.Box3().setFromObject(model,true),size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());
+    const info={};const base=await buildBaseScene(THREE,support.key,size,support.params,info);
+    base.updateMatrixWorld(true);const bb=new THREE.Box3().setFromObject(base,true);
+    // Center the item on the support's actual top, irrespective of imported origin.
+    base.position.set(center.x-(bb.min.x+bb.max.x)/2,box.min.y-bb.max.y+.0005,center.z-(bb.min.z+bb.max.z)/2);
+    const root=new THREE.Group();root.name='ModelWithDisplayBase';root.add(base,model);
+    const bytes=await new GLTFExporter().parseAsync(root,{binary:true,maxTextureSize:2048});
+    return {...item,sourceBlob:new Blob([bytes],{type:'model/gltf-binary'}),preflightDone:true,support};
+  }
   async function launchLayerQueue(slot,entries){
     if(!slot?.viewer||slot._arActive||slot._arPreparing)return;
     slot._arPreparing=true;
     try{
-      const result=await exportLayerGeometry(slot,entries);
+      const geometry=await exportLayerGeometry(slot,entries);
+      const result=await prepareARSupport(geometry);if(!result)return;
       // Each click starts ONLY its requested union, with no previous AR objects.
       const state={items:[],selectedIndex:0,queue:[result],fromLayerQueue:true,phase:'ready'};
       slot._arResumeState=null;slot._arPending=state;
       await arCheckpoint(state);
-      showHandoff(slot,'Selected geometry ready for AR');setHandoffResumeAction(slot);handoffFail(slot);
+      enterPreparedAR(slot,state,'Selected geometry ready for AR');
     }catch(err){console.warn('Selected AR geometry',err);showToast('Could not prepare selected layers: '+(err.message||err));}
     finally{slot._arPreparing=false;}
   }
@@ -2800,11 +2945,17 @@
     const done=new Promise(resolve=>{finish=resolve;});
     const overlay=document.createElement('div'); overlay.className='stable-ar';
     overlay.innerHTML='<div class="ar-gesture-surface" aria-label="Drag selected object to move; pinch to resize"></div><div class="ar-tools" aria-label="AR controls">'+
-      '<button data-add title="Add a different model" aria-label="Add a different model">'+svg('arFolder')+'</button><button data-move title="Move selected object to a new spot" aria-label="Move selected object to a new spot">'+svg('arMove')+'</button><button data-duplicate title="Duplicate selected object" aria-label="Duplicate selected object">'+svg('arDuplicate')+'</button><button data-material title="Change material" aria-label="Change material">'+svg('arMaterial')+'</button><button data-hide title="Hide controls" aria-label="Hide controls">'+svg('arPanels')+'</button><button data-exit title="Exit AR" aria-label="Exit AR">'+svg('close')+'</button></div>'+
+      '<button data-add title="Add a different model" aria-label="Add a different model">'+svg('arFolder')+'</button><button data-move title="Move selected object to a new spot" aria-label="Move selected object to a new spot">'+svg('arMove')+'</button><button data-duplicate title="Duplicate selected object" aria-label="Duplicate selected object">'+svg('arDuplicate')+'</button><button data-material title="Change material" aria-label="Change material">'+svg('arMaterial')+'</button><button data-layers-toggle title="Layers menu" aria-label="Layers menu">'+svg('arLayers')+'</button><button data-hand title="Hand control: pinch to grab, show your palm to hold" aria-label="Hand control">'+svg('arHand')+'</button><button data-hide title="Hide controls" aria-label="Hide controls">'+svg('arPanels')+'</button><button data-exit title="Exit AR" aria-label="Exit AR">'+svg('close')+'</button></div>'+
       '<div class="ar-adjust" aria-label="Selected object adjustments"><button data-small title="Smaller" aria-label="Smaller">'+svg('arMinus')+'<span class="ar-adjust-label">Smaller</span></button><button data-large title="Larger" aria-label="Larger">'+svg('arPlus')+'<span class="ar-adjust-label">Larger</span></button><button data-turn title="Rotate once around vertical axis" aria-label="Rotate once around vertical axis">'+svg('arTurn')+'<span class="ar-adjust-label">Rotate</span></button><button data-auto-rotate title="Continuous animation rotation on or off" aria-label="Continuous animation rotation on or off">'+svg('arLoop')+'<span class="ar-adjust-label">Continuous rotation</span></button></div>'+
       '<div class="ar-layers" aria-label="AR object layers"><div class="ar-layers-head"><b>Objects / Layers</b><span data-layer-count>0</span></div><div data-layer-list></div></div><div class="ar-materials" hidden aria-label="Material presets"></div>'+
       '<div class="ar-tip" role="status"></div><button class="ar-reveal-controls" data-show-controls title="Show controls" aria-label="Show controls" hidden></button><input data-ar-file type="file" accept=".glb,.gltf,.fbx,.obj,.mtl,.stl,.ply,.dae,.3mf,.3ds,.step,.stp,.bin,.jpg,.jpeg,.png,.webp,.bmp,.gif" multiple hidden><div class="ar-bottom"><div class="ar-loader" data-loader><div class="ar-loader-head"><span data-loader-label>Preparing model…</span><b data-loader-percent>0%</b></div><div class="ar-loader-track"><div class="ar-loader-bar" data-loader-bar></div></div></div><p class="ar-message" role="status">Preparing AR…</p><button data-place disabled>Place here</button></div>';
     document.body.appendChild(overlay);
+    const layoutARControls=()=>{const toolbar=overlay.querySelector('.ar-tools');if(toolbar)overlay.style.setProperty('--ar-toolbar-bottom',Math.ceil(toolbar.getBoundingClientRect().bottom+12)+'px');};
+    const toolbarObserver=new ResizeObserver(layoutARControls);toolbarObserver.observe(overlay.querySelector('.ar-tools'));
+    window.visualViewport?.addEventListener('resize',layoutARControls);
+    // The disposer is assigned below, after the session-local declarations exist.
+    requestAnimationFrame(layoutARControls);
+
     const materialMenu=overlay.querySelector('.ar-materials');
     const addMaterialButton=(label,colors,kind,id,title)=>{
       const button=document.createElement('button');button.type='button';button.dataset.arMaterial=kind;button.dataset.arMaterialId=id;button.title=title||label;button.setAttribute('aria-label',label);
@@ -2830,7 +2981,10 @@
     let objects=[],selected=null,canPlace=false,previewMatrix=null,ring=null,previewRoot=null,lastHit=null,loadingTimer=null,recoveringPositions=false,recoveryRef=null,recoverySelectedIndex=0;const pausedWork=[],pendingQueue=resumeState&&Array.isArray(resumeState.queue)?resumeState.queue.slice():[];let loadingQueue=false;
     let THREE=null,GLTFLoader=null,parseARBlob=null;
     let recoveryViews=resumeState?.views||null;
-    const captureResumeState=()=>({items:objects.map(obj=>({sourceBlob:obj.asset.sourceBlob,name:obj.name,scaleFactor:obj.scaleFactor,placed:obj.placed,locked:obj.locked,anchorHandle:obj.anchorHandle||null,showSize:!!obj._showSize,position:{x:obj.root.position.x,y:obj.root.position.y,z:obj.root.position.z},rotation:{x:obj.root.rotation.x,y:obj.root.rotation.y,z:obj.root.rotation.z},autoRotate:obj.autoRotate,materialPreset:obj.materialPreset,materialOverride:obj.materialOverride})),selectedIndex:Math.max(0,objects.indexOf(selected)),queue:pendingQueue.slice(),views:recoveryViews,phase:'running',_needsReposition:false});
+    const captureResumeState=()=>({items:objects.map(obj=>({sourceBlob:obj.asset.sourceBlob,name:obj.name,scaleFactor:obj.scaleFactor,placed:obj.placed,locked:obj.locked,hidden:!!obj.hidden,anchorHandle:obj.anchorHandle||null,showSize:!!obj._showSize,position:{x:(obj._handHome?.position||obj.root.position).x,y:(obj._handHome?.position||obj.root.position).y,z:(obj._handHome?.position||obj.root.position).z},rotation:{x:obj.root.rotation.x,y:obj.root.rotation.y,z:obj.root.rotation.z},autoRotate:obj.autoRotate,materialPreset:obj.materialPreset,materialOverride:obj.materialOverride})),selectedIndex:Math.max(0,objects.indexOf(selected)),queue:pendingQueue.slice(),views:recoveryViews,phase:'running',_needsReposition:false});
+    /* Saving every GLB to IndexedDB after each touch made the phone stutter. Pose saves are now batched. */
+    let disposeHandTrackingLoss=()=>{};let disposeLayout=()=>{toolbarObserver.disconnect();window.visualViewport?.removeEventListener('resize',layoutARControls);};let disposeHands=()=>{};let wantCam=false;let ringActive=false;let ckTimer=null;const saveSoon=()=>{clearTimeout(ckTimer);ckTimer=setTimeout(()=>{ckTimer=null;if(!ended&&!slot._arPickerTransition)arCheckpoint(captureResumeState());},2500);};
+    const applyVis=obj=>{obj.root.visible=!!obj.placed&&!obj.hidden&&!recoveringPositions;};
     const status=t=>{if(message.textContent!==t)message.textContent=t;};
     /* A percentage is not meaningful while the browser is decoding GLB textures.
        Display an animated progress track rather than claiming to be stuck at 18%. */
@@ -2838,9 +2992,11 @@
     const removePreview=()=>{if(!previewRoot||!scene)return;scene.remove(previewRoot);previewRoot.traverse(o=>{if(o.material){(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>m&&m.dispose&&m.dispose());}});previewRoot=null;};
     /* Placed models are NEVER turned into floating preview duplicates. Even on
        a restored AR session the reference object is represented by the ring only. */
-    const buildPreview=()=>{removePreview();if(!selected||!scene||selected.placed||recoveringPositions)return;previewRoot=selected.root.clone(true);previewRoot.visible=false;previewRoot.traverse(o=>{if(o.isMesh){o.castShadow=false;o.receiveShadow=false;if(Array.isArray(o.material))o.material=o.material.map(m=>{const c=m.clone();c.transparent=true;c.opacity=.34;c.depthWrite=false;c.color&&c.color.set(0xded7ca);c.needsUpdate=true;return c;});else if(o.material){o.material=o.material.clone();o.material.transparent=true;o.material.opacity=.34;o.material.depthWrite=false;if(o.material.color)o.material.color.set(0xded7ca);o.material.needsUpdate=true;}}});scene.add(previewRoot);};
+    const buildPreview=()=>{removePreview();if(!selected||!scene||selected.placed||recoveringPositions)return;const pm=new THREE.MeshBasicMaterial({color:0xded7ca,transparent:true,opacity:.3,depthWrite:false});previewRoot=selected.root.clone(true);previewRoot.visible=false;previewRoot.traverse(o=>{if(o.isMesh){o.castShadow=false;o.receiveShadow=false;o.material=pm;}});scene.add(previewRoot);};
     const LOCK_OFF='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.4-2"/></svg>';
     const LOCK_ON='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+    const EYE_ON='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+    const EYE_OFF='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg>';
     const sizeText=(obj)=>{const k=(obj.scaleFactor||1)*1000,w=obj.size.x*k,d=obj.size.z*k,h=obj.size.y*k,big=Math.max(w,d,h)>=10000,f=n=>big?(n/1000).toFixed(2):String(Math.round(n)),u=big?' m':' mm';return 'W '+f(w)+' × D '+f(d)+' × H '+f(h)+u;};
     const dimsFor=(obj)=>{
       try{
@@ -2884,19 +3040,21 @@
     const isLocked=()=>{if(selected&&selected.locked){status((selected.name||'This object')+' is locked. Unlock it in the list to change it.');return true;}return false;};
     const updateLayerList=()=>{
       const list=overlay.querySelector('[data-layer-list]'); list.replaceChildren();
-      objects.forEach((obj,i)=>{const row=document.createElement('div');row.className='ar-layer-row';const b=document.createElement('button');b.type='button';b.className='ar-layer'+(obj===selected?' selected':'');b.textContent=(obj.name||('Object '+(i+1)))+(obj.placed?'':' · place');b.title='Select '+(obj.name||('Object '+(i+1)));b.onclick=()=>{if(recoveringPositions){status('First align the previous models with their original real-world location.');return;}selected=obj;updateLayerList();buildPreview();overlay.querySelector('[data-auto-rotate]').classList.toggle('active',!!obj.autoRotate);status('Selected '+(obj.name||'object')+'. Controls affect only this object.');};const del=document.createElement('button');del.type='button';del.className='ar-layer-delete';del.textContent='×';del.title='Remove '+(obj.name||('Object '+(i+1)));del.setAttribute('aria-label',del.title);del.onclick=()=>{if(obj.locked){status(nm+' is locked. Unlock it before removing.');return;}if(obj.anchor&&obj.anchor.delete)try{obj.anchor.delete();}catch(_){}obj.anchor=null;obj.anchorHandle=null;obj.placed=false;scene.remove(obj.root);const ix=objects.indexOf(obj);if(ix>=0)objects.splice(ix,1);if(selected===obj)selected=objects[Math.max(0,ix-1)]||objects[0]||null;updateLayerList();buildPreview();overlay.querySelector('[data-auto-rotate]').classList.toggle('active',!!(selected&&selected.autoRotate));status(obj.name+' removed.');};const nm=(obj.name||('Object '+(i+1)));
+      objects.forEach((obj,i)=>{const row=document.createElement('div');row.className='ar-layer-row';const b=document.createElement('button');b.type='button';b.className='ar-layer'+(obj===selected?' selected':'')+(obj.hidden?' hidden-obj':'');b.textContent=(obj.name||('Object '+(i+1)))+(obj.placed?'':' · place');b.title='Select '+(obj.name||('Object '+(i+1)));b.onclick=()=>{if(recoveringPositions){status('First align the previous models with their original real-world location.');return;}selected=obj;ringActive=false;updateLayerList();buildPreview();overlay.querySelector('[data-auto-rotate]').classList.toggle('active',!!obj.autoRotate);status('Selected '+(obj.name||'object')+'. Controls affect only this object.');};const del=document.createElement('button');del.type='button';del.className='ar-layer-delete';del.textContent='×';del.title='Remove '+(obj.name||('Object '+(i+1)));del.setAttribute('aria-label',del.title);del.onclick=()=>{if(obj.locked){status(nm+' is locked. Unlock it before removing.');return;}if(obj.anchor&&obj.anchor.delete)try{obj.anchor.delete();}catch(_){}obj.anchor=null;obj.anchorHandle=null;obj.placed=false;scene.remove(obj.root);const ix=objects.indexOf(obj);if(ix>=0)objects.splice(ix,1);if(selected===obj)selected=objects[Math.max(0,ix-1)]||objects[0]||null;updateLayerList();buildPreview();overlay.querySelector('[data-auto-rotate]').classList.toggle('active',!!(selected&&selected.autoRotate));status(obj.name+' removed.');};const nm=(obj.name||('Object '+(i+1)));
 const sb=document.createElement('button');sb.type='button';sb.className='ar-layer-size'+(obj._showSize?' on':'');sb.textContent='S';sb.title='Show size of '+nm;sb.setAttribute('aria-label',sb.title);
 const sl=document.createElement('div');sl.className='ar-size-line';sl._obj=obj;sl.hidden=!obj._showSize;sl.textContent=sizeText(obj);
 sb.onclick=()=>{obj._showSize=!obj._showSize;sb.classList.toggle('on',obj._showSize);sl.hidden=!obj._showSize;sl.textContent=sizeText(obj);dimsFor(obj);status(obj._showSize?'Size is shown on '+nm+'.':'Size hidden.');};
 const lk=document.createElement('button');lk.type='button';lk.className='ar-layer-lock'+(obj.locked?' on':'');lk.innerHTML=obj.locked?LOCK_ON:LOCK_OFF;lk.title=(obj.locked?'Unlock ':'Lock ')+nm;lk.setAttribute('aria-label',lk.title);
 lk.onclick=()=>{obj.locked=!obj.locked;updateLayerList();status(obj.locked?nm+' is locked and will not move.':nm+' is unlocked.');};
-row.append(b,sb,lk,del,sl);list.appendChild(row);});
+const eb=document.createElement('button');eb.type='button';eb.className='ar-layer-eye'+(obj.hidden?' off':'');eb.innerHTML=obj.hidden?EYE_OFF:EYE_ON;eb.title=(obj.hidden?'Show ':'Hide ')+nm;eb.setAttribute('aria-label',eb.title);
+eb.onclick=()=>{obj.hidden=!obj.hidden;applyVis(obj);updateLayerList();status(obj.hidden?nm+' is hidden. It stays in the list.':nm+' is visible again.');saveSoon();};
+row.append(b,sb,eb,lk,del,sl);list.appendChild(row);});
       pendingQueue.forEach((item,i)=>{const row=document.createElement('div');row.className='ar-layer-row ar-layer-pending';const b=document.createElement('button');b.type='button';b.className='ar-layer';b.disabled=true;b.textContent=(item.name||('Queued item '+(i+1)))+' - queued';b.title='Waiting in queue - item '+(i+1)+' of '+pendingQueue.length;row.appendChild(b);list.appendChild(row);});
       overlay.querySelector('[data-layer-count]').textContent=String(objects.length+pendingQueue.length);
     };
     const onResize=()=>{if(renderer){renderer.setSize(innerWidth,innerHeight,false);if(cameraRef){cameraRef.aspect=innerWidth/Math.max(1,innerHeight);cameraRef.updateProjectionMatrix();}}};window.addEventListener('resize',onResize,{passive:true});
     const cleanup=()=>{
-      if(ended)return; ended=true;window.removeEventListener('resize',onResize);
+      if(ended)return; ended=true;clearTimeout(ckTimer);disposeHands();disposeLayout();window.removeEventListener('resize',onResize);
       if(!slot._arExplicitExit&&!slot._arNativeHandoff){
         const snapshot=(slot._arPickerTransition&&slot._arResumeState)||captureResumeState();
         if(snapshot&&(snapshot.items?.length||snapshot.queue?.length)){
@@ -2909,17 +3067,23 @@ row.append(b,sb,lk,del,sl);list.appendChild(row);});
       if(renderer)renderer.setAnimationLoop(null);
       if(scene){const textures=new Set(),materials=new Set(),geometries=new Set();scene.traverse(o=>{if(o.geometry)geometries.add(o.geometry);(Array.isArray(o.material)?o.material:o.material?[o.material]:[]).forEach(m=>{materials.add(m);Object.values(m).forEach(t=>{if(t&&t.isTexture)textures.add(t);});});});textures.forEach(t=>t.dispose());materials.forEach(m=>m.dispose());geometries.forEach(g=>g.dispose());}
       clearInterval(loadingTimer); loadingTimer=null; if(previewRoot&&scene)scene.remove(previewRoot); objects.forEach(o=>{if(o.anchor&&o.anchor.delete)try{o.anchor.delete();}catch(_){}}); if(renderer)renderer.dispose(); if(assetURL)URL.revokeObjectURL(assetURL);
-      document.documentElement.classList.remove('ar-live');overlay.remove();slot._arActive=false;if(wasPlaying)try{v.play();}catch(_){}pausedWork.forEach(state=>{const bg=state.slot;if(state.wasPlaying&&bg.viewer)try{bg.viewer.play();}catch(_){}if(state.hadTicker&&bg.el&&bg.el.isConnected)try{startAnimationTicker(bg);}catch(_){}});finish();
+      document.documentElement.classList.remove('ar-live');overlay.remove();slot._arActive=false;const _exitNow=!!slot._arExplicitExit;if(wasPlaying)try{v.play();}catch(_){}pausedWork.forEach(state=>{const bg=state.slot;if(state.wasPlaying&&bg.viewer)try{bg.viewer.play();}catch(_){}if(state.hadTicker&&bg.el&&bg.el.isConnected)try{startAnimationTicker(bg);}catch(_){}});finish();if(_exitNow)arAfterExit();
     };
     const stop=()=>{slot._arExplicitExit=true;slot._arPickerTransition=false;slot._arResumeState=null;slot._arPending=null;arDeleteCheckpoint();if(session)session.end().catch(cleanup);else cleanup();};
     overlay.querySelector('[data-exit]').onclick=stop;
+    {const lb=overlay.querySelector('[data-layers-toggle]'),lp=overlay.querySelector('.ar-layers');lp.classList.add('is-closed');lb.onclick=()=>{const closed=lp.classList.toggle('is-closed');lb.classList.toggle('active',!closed);};}
+    /* Taps are handled on pointerup (with a small movement allowance) instead of waiting for a late/slop-cancelled click. */
+    {let tapBtn=null,tx=0,ty=0,tt=0,lastSynth=0,lastBtn=null;
+      overlay.addEventListener('pointerdown',e=>{const b=e.target.closest&&e.target.closest('button');if(!b||b.disabled){tapBtn=null;return;}tapBtn=b;tx=e.clientX;ty=e.clientY;tt=performance.now();},true);
+      overlay.addEventListener('pointerup',e=>{const b=tapBtn;tapBtn=null;if(!b||b.disabled||!b.isConnected)return;const up=e.target.closest&&e.target.closest('button');if(up!==b)return;if(Math.hypot(e.clientX-tx,e.clientY-ty)>16||performance.now()-tt>800)return;lastSynth=performance.now();lastBtn=b;b.click();},true);
+      overlay.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('button');if(e.isTrusted&&b&&b===lastBtn&&performance.now()-lastSynth<900){e.stopImmediatePropagation();e.preventDefault();}},true);}
     overlay.querySelector('[data-hide]').onclick=()=>{overlay.classList.add('ar-ui-hidden');overlay.querySelector('[data-show-controls]').hidden=false;};
     overlay.querySelector('[data-show-controls]').onclick=()=>{overlay.classList.remove('ar-ui-hidden');overlay.querySelector('[data-show-controls]').hidden=true;};
     overlay.querySelector('[data-material]').onclick=()=>{const p=overlay.querySelector('.ar-materials');p.hidden=!p.hidden;};
     /* Native title tooltips are inconsistent on phones; add a short press-and-hold label. */
     let tipTimer=null,tipHideTimer=null;overlay.querySelectorAll('.ar-tools button,.ar-adjust button,.ar-reveal-controls').forEach(btn=>{const show=()=>{clearTimeout(tipTimer);clearTimeout(tipHideTimer);tipTimer=setTimeout(()=>{const tip=overlay.querySelector('.ar-tip');tip.textContent=btn.getAttribute('aria-label')||btn.title||'';tip.classList.add('visible');tipHideTimer=setTimeout(()=>tip.classList.remove('visible'),1900);},420);};const cancel=()=>clearTimeout(tipTimer);btn.addEventListener('pointerdown',show);['pointerup','pointerleave','pointercancel','click'].forEach(ev=>btn.addEventListener(ev,cancel));});
     overlay.addEventListener('click',e=>{if(!e.target.closest('[data-material],.ar-materials'))overlay.querySelector('.ar-materials').hidden=true;});
-    overlay.addEventListener('beforexrselect',e=>{if(e.target.closest('button,input,label,.ar-gesture-surface,.ar-pick,.ar-layers'))e.preventDefault();});
+    overlay.addEventListener('beforexrselect',e=>{if(e.target.closest('button,input,label,.ar-gesture-surface,.ar-pick,.ar-layers,.ar-hand-preview'))e.preventDefault();});
     const updateScale=(obj,value)=>{obj.scaleFactor=Math.max(.01,Math.min(100,value));obj.scaled.scale.setScalar(obj.scaleFactor);refreshSizes();};
     const snapshotOriginalMaterials=(model)=>{const states=[];model.traverse(o=>{if(o.isMesh&&o.geometry&&!isBaseMesh(o))states.push({mesh:o,material:Array.isArray(o.material)?o.material.slice():o.material,geometry:o.geometry});});return states;};
     const clearARMaterialOverride=obj=>{
@@ -2978,14 +3142,14 @@ row.append(b,sb,lk,del,sl);list.appendChild(row);});
         if(ended||!obj.placed){try{anchor.delete&&anchor.delete();}catch(_){}return;}
         obj.anchor=anchor;
         if(typeof anchor.requestPersistentHandle==='function'){
-          try{obj.anchorHandle=await anchor.requestPersistentHandle();}catch(_){}
+          try{obj.anchorHandle=await anchor.requestPersistentHandle();if(!ended&&objects.includes(obj))saveSoon();}catch(_){}
         }
       }).catch(()=>{});
     };
     const loadNextQueued=async()=>{
       /* Do not start another placement while an object or recovered layout is pending.
          In particular, never interpret the already-placed selected model as a new one. */
-      if(loadingQueue||ended||recoveringPositions||!pendingQueue.length||objects.some(obj=>!obj.placed))return;
+      if(loadingQueue||ended||recoveringPositions||!pendingQueue.length||objects.some(obj=>!obj.placed||obj._awaitAnchorPose))return;
       loadingQueue=true;const item=pendingQueue[0];
       try{
         status('Opening '+item.name+' without moving existing objects…');
@@ -2995,11 +3159,10 @@ row.append(b,sb,lk,del,sl);list.appendChild(row);});
         if(ended)return;
         /* Commit only after the entire file has been decoded and validated. */
         pendingQueue.shift();objects.push(obj);selected=obj;canPlace=false;
-        arCheckpoint(captureResumeState());
-        place.disabled=true;place.textContent='Place new item';
+        saveSoon();place.disabled=true;place.textContent='Place new item';
         updateLayerList();buildPreview();overlay.querySelector('[data-auto-rotate]').classList.remove('active');
         setLoading(100,'New object ready',false);
-        status('Model '+obj.name+' is ready. Scan a NEW spot and tap Place. Previous models have not been moved.');
+        status('New model ready. Scan a surface and confirm its placement. Previous models have not moved.');
       }catch(err){
         if(!ended){pendingQueue.shift();updateLayerList();setLoading(0,'Could not load file',false);console.warn('Could not load queued AR item',err);const why=err&&err.message?err.message:'Unknown error';status('Could not open '+item.name+': '+why);showToast('AR import failed: '+why);}
       }finally{
@@ -3017,30 +3180,32 @@ row.append(b,sb,lk,del,sl);list.appendChild(row);});
            position to translate the entire saved arrangement, preserving every
            object's relative offset rather than separately placing each again. */
         const delta=new THREE.Vector3().setFromMatrixPosition(previewMatrix).sub(recoveryRef.root.position);
-        objects.forEach(item=>{if(!item.placed)return;if(item.anchor&&item.anchor.delete)try{item.anchor.delete();}catch(_){}item.anchor=null;item.anchorHandle=null;item.root.position.add(delta);item.root.visible=true;});
+        objects.forEach(item=>{if(!item.placed)return;if(item.anchor&&item.anchor.delete)try{item.anchor.delete();}catch(_){}item.anchor=null;item.anchorHandle=null;item.root.position.add(delta);item.root.visible=!item.hidden;});
         attachAnchor(recoveryRef,hitForAnchor);
         recoveringPositions=false;recoveryRef=null;selected=objects[recoverySelectedIndex]||objects[0]||null;
         canPlace=false;if(previewRoot)previewRoot.visible=false;place.textContent='Place here';
         updateLayerList();buildPreview();
         status('Previous layout aligned using the reference object. Check alignment; other objects retain their relative positions.');
-        arCheckpoint(captureResumeState());
+        saveSoon();
         if(pendingQueue.length&&!objects.some(obj=>!obj.placed))loadNextQueued();
         return;
       }
       obj.root.position.setFromMatrixPosition(previewMatrix);
-      if(!obj.placed){obj.placed=true;obj.root.visible=true;}
+      if(!obj.placed){obj.placed=true;}obj._restored=false;obj.root.visible=!obj.hidden;
       if(obj.anchor&&obj.anchor.delete)try{obj.anchor.delete();}catch(_){}obj.anchor=null;obj.anchorHandle=null;
       attachAnchor(obj,hitForAnchor);
       canPlace=false;if(previewRoot)previewRoot.visible=false;place.textContent='Place here';updateLayerList();
       status('Placed. The previous AR objects have not been moved.');
-      arCheckpoint(captureResumeState());
+      saveSoon();
       if(slot._arPickerTransition){slot._arPickerTransition=false;slot._arResumeState=null;}
-      if(pendingQueue.length)loadNextQueued();
+      const nextPrevious=objects.find(item=>!item.placed);
+      if(nextPrevious){selected=nextPrevious;place.textContent=nextPrevious._restored?'Place previous model':'Place new item';buildPreview();updateLayerList();}
+      else if(pendingQueue.length)loadNextQueued();
     };
     try{
       if(!navigator.xr){slot._arNativeHandoff=true;cleanup();await launchNativeAR(slot,resumeState);return;}
-      status('Starting AR session…');setLoading(3,'Starting AR session…');
-      try{session=await navigator.xr.requestSession('immersive-ar',{requiredFeatures:['local','hit-test'],optionalFeatures:['dom-overlay','local-floor','anchors','persistent-anchors'],domOverlay:{root:overlay}});}
+      status('Starting AR session…');setLoading(3,'Starting AR session…');wantCam=(()=>{try{return localStorage.getItem('ar_hand_control')==='1';}catch(_){return false;}})();
+      try{session=await navigator.xr.requestSession('immersive-ar',{requiredFeatures:['local','hit-test'],optionalFeatures:['dom-overlay','local-floor','anchors','persistent-anchors','camera-access'],domOverlay:{root:overlay}});}
       catch(err){if(err.name==='NotSupportedError'){slot._arNativeHandoff=true;cleanup();await launchNativeAR(slot,resumeState);return;}throw err;}
       if(ended){await session.end();return;} slot._arResumeState=null;session.addEventListener('end',cleanup,{once:true});
       panes.forEach(p=>p.slots.forEach(bg=>{if(bg===slot)return;const hadTicker=!!bg.animationRAF,wasPlaying=!!(bg.viewer&&!bg.viewer.paused);if(hadTicker)stopAnimationTicker(bg);if(wasPlaying)try{bg.viewer.pause();}catch(_){}pausedWork.push({slot:bg,hadTicker,wasPlaying});}));
@@ -3071,6 +3236,7 @@ row.append(b,sb,lk,del,sl);list.appendChild(row);});
       renderer=new THREE.WebGLRenderer({canvas:(()=>{const c=document.createElement('canvas');overlay.insertBefore(c,overlay.firstChild);return c;})(),alpha:true,antialias:true,powerPreference:getARPowerPreference(),preserveDrawingBuffer:false});
       const canvas=overlay.querySelector('canvas');canvas.style.pointerEvents='none';renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));renderer.setSize(innerWidth,innerHeight);renderer.setClearColor(0x000000,0);renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.xr.enabled=true;
       try{renderer.xr.setReferenceSpaceType('local-floor');}catch(_){renderer.xr.setReferenceSpaceType('local');}
+      try{renderer.xr.setFramebufferScaleFactor(.85);}catch(_){}
       await renderer.xr.setSession(session);if(ended)return;
       scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.01,100);cameraRef=camera;
       scene.add(new THREE.HemisphereLight(0xffffff,0x9a8875,2));const sun=new THREE.DirectionalLight(0xfff2df,2.5);sun.position.set(2,4,2);scene.add(sun);
@@ -3082,7 +3248,7 @@ row.append(b,sb,lk,del,sl);list.appendChild(row);});
       }else if(resumeState&&Array.isArray(resumeState.items)&&resumeState.items.length){
         status(resumeState._needsReposition?'AR restarted · objects need repositioning':'Restoring AR objects…');setLoading(20,'Restoring saved objects…');const cache=new Map();let restored=0;
         for(const item of resumeState.items){if(ended)return;let asset=cache.get(item.sourceBlob);if(!asset){const loaded=await parseARBlob(item.sourceBlob,'Restoring '+item.name+'…');asset={scene:loaded.scene,THREE,sourceBlob:item.sourceBlob};cache.set(item.sourceBlob,asset);}
-          const obj=makeObject(asset,item.name);objects.push(obj);restored++;setLoading(20+Math.round(restored/Math.max(1,resumeState.items.length)*62),'Restoring object '+restored+' of '+resumeState.items.length+'…');updateScale(obj,item.scaleFactor||1);obj.root.position.set(item.position?.x||0,item.position?.y||0,item.position?.z||0);obj.root.rotation.set(item.rotation?.x||0,item.rotation?.y||0,item.rotation?.z||0);obj.placed=!!item.placed;obj.root.visible=obj.placed&&!resumeState._needsReposition;obj.autoRotate=!!item.autoRotate;obj.locked=!!item.locked;obj.anchorHandle=item.anchorHandle||null;obj._showSize=!!item.showSize;if(item.materialOverride)materialPreset(obj,item.materialOverride);else if(item.materialPreset&&item.materialPreset!=='original')materialPreset(obj,item.materialPreset);if(obj._showSize)dimsFor(obj);
+          const obj=makeObject(asset,item.name);obj._restored=true;objects.push(obj);restored++;setLoading(20+Math.round(restored/Math.max(1,resumeState.items.length)*62),'Restoring object '+restored+' of '+resumeState.items.length+'…');updateScale(obj,item.scaleFactor||1);obj.root.position.set(item.position?.x||0,item.position?.y||0,item.position?.z||0);obj.root.rotation.set(item.rotation?.x||0,item.rotation?.y||0,item.rotation?.z||0);obj.placed=!!item.placed;obj.hidden=!!item.hidden;obj.root.visible=obj.placed&&!obj.hidden&&!resumeState._needsReposition;obj.autoRotate=!!item.autoRotate;obj.locked=!!item.locked;obj.anchorHandle=item.anchorHandle||null;obj._showSize=!!item.showSize;if(item.materialOverride)materialPreset(obj,item.materialOverride);else if(item.materialPreset&&item.materialPreset!=='original')materialPreset(obj,item.materialPreset);if(obj._showSize)dimsFor(obj);
         }
         recoverySelectedIndex=Math.max(0,Math.min(objects.length-1,Number(resumeState.selectedIndex)||0));
         selected=objects[recoverySelectedIndex];
@@ -3094,16 +3260,15 @@ row.append(b,sb,lk,del,sl);list.appendChild(row);});
           if(typeof session.restorePersistentAnchor==='function'&&placed.every(obj=>!!obj.anchorHandle)){
             try{
               const anchors=await Promise.all(placed.map(obj=>session.restorePersistentAnchor(obj.anchorHandle)));
-              if(!ended){placed.forEach((obj,i)=>{obj.anchor=anchors[i];obj.root.visible=true;});anchorsRestored=true;}
+              if(!ended){placed.forEach((obj,i)=>{obj.anchor=anchors[i];obj._awaitAnchorPose=true;obj.root.visible=false;});anchorsRestored=true;}
             }catch(err){console.warn('Persistent AR anchors unavailable; manual alignment required',err);}
           }
           if(!anchorsRestored){
             placed.forEach(obj=>{if(obj.anchor&&obj.anchor.delete)try{obj.anchor.delete();}catch(_){}obj.anchor=null;});
-            recoveryRef=placed[0];recoveringPositions=true;selected=recoveryRef;
-            /* A new XR coordinate system is NOT the previous real-world position.
-               Hide the old objects until alignment; never draw a fake/moved copy. */
-            placed.forEach(obj=>{obj.root.visible=false;});
-            place.textContent='Align previous models';
+            placed.forEach(obj=>{obj.placed=false;obj.root.visible=false;});
+            selected=objects.find(obj=>!obj.placed)||objects[0];recoveringPositions=false;recoveryRef=null;
+            place.textContent='Place previous model';
+
           }
         }
         updateLayerList();buildPreview();overlay.querySelector('[data-auto-rotate]').classList.toggle('active',!!selected.autoRotate);
@@ -3111,19 +3276,184 @@ row.append(b,sb,lk,del,sl);list.appendChild(row);});
         status('Preparing the current product…');setLoading(20,'Preparing current product…');
         if(!v.loaded){await Promise.race([new Promise((resolve,reject)=>{v.addEventListener('load',resolve,{once:true});v.addEventListener('error',()=>reject(new Error('The original model did not finish loading.')), {once:true});}),new Promise((_,reject)=>setTimeout(()=>reject(new Error('The original model is taking too long to load. Close AR and try again after the 3D preview appears.')),25000))]);}
         setLoading(38,'Packaging model for AR…');        const blob=await v.exportScene({binary:true,onlyVisible:true,maxTextureSize:2048});if(ended)return;const gl=await parseARBlob(blob,'Decoding current model…');if(ended)return;setLoading(88,'Preparing model placement…');
-        const asset={scene:gl.scene,THREE,sourceBlob:blob};selected=makeObject(asset,(v.getAttribute('alt')||'Current model').trim()||'Current model');objects.push(selected);updateLayerList();buildPreview();arCheckpoint(captureResumeState());
+        const asset={scene:gl.scene,THREE,sourceBlob:blob};selected=makeObject(asset,(v.getAttribute('alt')||'Current model').trim()||'Current model');objects.push(selected);updateLayerList();buildPreview();saveSoon();
       }
-      ring=new THREE.Mesh(new THREE.RingGeometry(.065,.085,48).rotateX(-Math.PI/2),new THREE.MeshBasicMaterial({color:0xffd28b,side:THREE.DoubleSide,depthTest:false,transparent:true,opacity:.92}));ring.matrixAutoUpdate=false;ring.visible=false;scene.add(ring);previewMatrix=new THREE.Matrix4();if(!previewRoot)buildPreview();setLoading(100,'AR ready',false);document.documentElement.classList.add('ar-live');try{hideHandoff(slot);}catch(_){}
-      const gesture=overlay.querySelector('.ar-gesture-surface'),pointers=new Map();let dragLast=null,pinchStart=0,pinchScale=1;
-      const pointerDown=e=>{if(e.target.closest('button,input,label'))return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});try{gesture.setPointerCapture(e.pointerId);}catch(_){}/* Placed items must never move from a normal swipe: use Move tool. */dragLast=null;if(pointers.size===2&&selected&&!selected.locked){const pts=Array.from(pointers.values());pinchStart=Math.hypot(pts[0].x-pts[1].x,pts[0].y-pts[1].y)||1;pinchScale=selected.scaleFactor;}e.preventDefault();};
-      const pointerMove=e=>{if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pointers.size>=2&&selected&&!selected.locked){const pts=Array.from(pointers.values()),d=Math.hypot(pts[0].x-pts[1].x,pts[0].y-pts[1].y);updateScale(selected,pinchScale*d/Math.max(1,pinchStart));}else if(dragLast&&selected&&selected.placed&&!selected.locked){const dx=e.clientX-dragLast.x,dy=e.clientY-dragLast.y;dragLast={x:e.clientX,y:e.clientY};if((Math.abs(dx)+Math.abs(dy))>0.5&&selected.anchor){if(selected.anchor.delete)try{selected.anchor.delete();}catch(_){}selected.anchor=null;selected.anchorHandle=null;}const xrCam=renderer.xr.getCamera(camera),right=new THREE.Vector3(1,0,0).applyQuaternion(xrCam.quaternion);right.y=0;right.normalize();const forward=new THREE.Vector3(0,0,-1).applyQuaternion(xrCam.quaternion);forward.y=0;forward.normalize();selected.root.position.addScaledVector(right,dx*.003);selected.root.position.addScaledVector(forward,-dy*.003);}e.preventDefault();};
-      const pointerUp=e=>{if(selected&&selected.placed)arCheckpoint(captureResumeState());pointers.delete(e.pointerId);if(pointers.size<2)pinchStart=0;if(!pointers.size)dragLast=null;};gesture.addEventListener('pointerdown',pointerDown);gesture.addEventListener('pointermove',pointerMove);gesture.addEventListener('pointerup',pointerUp);gesture.addEventListener('pointercancel',pointerUp);
+      ring=new THREE.Mesh(new THREE.RingGeometry(.065,.085,48).rotateX(-Math.PI/2),new THREE.MeshBasicMaterial({color:0xffd28b,side:THREE.DoubleSide,depthTest:false,transparent:true,opacity:.92}));ring.matrixAutoUpdate=false;ring.visible=false;scene.add(ring);previewMatrix=new THREE.Matrix4();if(!previewRoot)buildPreview();setLoading(100,'AR ready',false);document.documentElement.classList.add('ar-live');setTimeout(()=>{(async()=>{try{if(ended)return;const views=await captureARViews(slot);if(ended)return;await arSiteWrite({views,savedAt:Date.now()});}catch(e){console.warn('site snapshot',e);}})();},1800);try{hideHandoff(slot);}catch(_){}
+      const gesture=overlay.querySelector('.ar-gesture-surface'),pointers=new Map();let pinchStart=0,pinchScale=1,drag=null;
+      const _ray=new THREE.Raycaster(),_ndc=new THREE.Vector2(),_plane=new THREE.Plane(new THREE.Vector3(0,1,0),0),_hit=new THREE.Vector3(),_inv=new THREE.Matrix4(),_lr=new THREE.Ray(),_box=new THREE.Box3(),_bh=new THREE.Vector3();
+      const rayAt=(x,y)=>{camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();_ndc.set(x/innerWidth*2-1,-(y/innerHeight)*2+1);_ray.setFromCamera(_ndc,camera);return _ray.ray;};
+      const groundAt=(x,y,h)=>{const r=rayAt(x,y);_plane.normal.set(0,1,0);_plane.constant=-h;return r.intersectPlane(_plane,_hit)?_hit.clone():null;};
+      const ringRadius=o=>Math.max(.07,Math.max(o.size.x,o.size.z)*(o.scaleFactor||1)/2*1.15+.05);
+      /* Cheap oriented-box picking: no per-triangle raycast, so heavy models do not stall a tap. */
+      const hitObject=(x,y)=>{const r=rayAt(x,y);let best=null,bd=Infinity;for(const o of objects){if(!o.placed||o.hidden||o._hand||!o.root.visible)continue;o.root.updateMatrixWorld(true);_inv.copy(o.root.matrixWorld).invert();_lr.copy(r).applyMatrix4(_inv);const k=o.scaleFactor||1,pad=.03;_box.min.set(-o.size.x*k/2-pad,-pad,-o.size.z*k/2-pad);_box.max.set(o.size.x*k/2+pad,o.size.y*k+pad,o.size.z*k/2+pad);if(_lr.intersectBox(_box,_bh)){const d=_bh.distanceTo(_lr.origin);if(d<bd){bd=d;best=o;}}}return best;};
+      const selectObject=o=>{if(!o||o===selected)return;selected=o;updateLayerList();buildPreview();overlay.querySelector('[data-auto-rotate]').classList.toggle('active',!!o.autoRotate);status('Selected '+(o.name||'object')+(o.locked?' (locked).':'. Drag the ring to rotate, drag the object to move, pinch to resize.'));};
+      /* Rotation ring shown under the selected, placed, unlocked object. */
+      const selRing=new THREE.Group(),ringBand=new THREE.Mesh(new THREE.RingGeometry(.9,1,72).rotateX(-Math.PI/2),new THREE.MeshBasicMaterial({color:0xffd28b,side:THREE.DoubleSide,depthTest:false,transparent:true,opacity:.92})),ringDisc=new THREE.Mesh(new THREE.CircleGeometry(.9,48).rotateX(-Math.PI/2),new THREE.MeshBasicMaterial({color:0xffd28b,side:THREE.DoubleSide,depthTest:false,transparent:true,opacity:.1})),ringNotch=new THREE.Mesh(new THREE.CircleGeometry(.07,20).rotateX(-Math.PI/2),new THREE.MeshBasicMaterial({color:0xffffff,side:THREE.DoubleSide,depthTest:false,transparent:true,opacity:.95}));
+      ringBand.renderOrder=996;ringDisc.renderOrder=995;ringNotch.renderOrder=997;selRing.add(ringDisc,ringBand,ringNotch);selRing.visible=false;scene.add(selRing);
+      const updateSelRing=()=>{const o=selected,show=ringActive&&!!o&&o.placed&&!o.hidden&&!o.locked&&!o._hand&&!recoveringPositions;if(selRing.visible!==show)selRing.visible=show;if(!show)return;selRing.position.set(o.root.position.x,o.root.position.y+.003,o.root.position.z);selRing.scale.setScalar(ringRadius(o));ringNotch.position.set(Math.sin(o.root.rotation.y)*.95,0,Math.cos(o.root.rotation.y)*.95);};
+      /* Floor-aligned ripples: rings keep growing outward from the placement spot and fade as they get far, then start again. */
+      const waves=[0,1,2].map(()=>{const m=new THREE.Mesh(new THREE.RingGeometry(.978,1,96).rotateX(-Math.PI/2),new THREE.MeshBasicMaterial({color:0xffd28b,side:THREE.DoubleSide,depthTest:false,transparent:true,opacity:0}));m.matrixAutoUpdate=false;m.visible=false;m.renderOrder=990;scene.add(m);return m;});
+      const _ws=new THREE.Vector3();
+      const updateWaves=(on,time)=>{waves.forEach((w,i)=>{if(!on){if(w.visible)w.visible=false;return;}const period=2800,t=(((time||0)+i*period/3)%period)/period,r=.1+t*1.7;w.visible=true;w.material.opacity=.75*Math.pow(1-t,1.5)*Math.min(1,t*10);_ws.set(r,r,r);w.matrix.copy(previewMatrix).scale(_ws);});};
+      const dropAnchor=o=>{if(o.anchor){if(o.anchor.delete)try{o.anchor.delete();}catch(_){}o.anchor=null;o.anchorHandle=null;}};
+
+      /* ================= Hand control (camera based, experimental) =================
+         Needs the XR camera feed ('camera-access') and MediaPipe Hand Landmarker, loaded once from the internet. */
+      let handOn=false,handLM=window.__arHandLM||null,handLast=0,handInterval=130,handBinding=null,capProg=null,capFbo=null,capTex=null,capVao=null,capLoc=null,capW=0,capH=0,capBuf=null,capCanvas=null,capCtx=null,capImg=null,handMode=(()=>{try{return Number(localStorage.getItem('ar_hand_mode'))||0;}catch(_){return 0;}})(),capDW=0,capDH=0,handMiss=0,handReady=false,handNoCam=0,handErrAt=0,prevEl=null,prevCv=null,prevCtx=null,prevLbl=null;
+      const hand={state:'idle',obj:null,orig:null,pinch:false,palmSince:0,pinchSince:0,lastSeen:0,lastOpen:0,tgtPos:new THREE.Vector3(),tgtScale:1,off:new THREE.Vector3(),speed:14};
+      const _h1=new THREE.Vector3(),_h2=new THREE.Vector3(),_h3=new THREE.Vector3();
+      const handBtn=overlay.querySelector('[data-hand]');
+      const showPreview=(on)=>{
+        if(!on){if(prevEl){prevEl.remove();prevEl=null;}return;}
+        if(prevEl)return;prevEl=document.createElement('button');prevEl.type='button';prevEl.className='ar-hand-preview';prevEl.setAttribute('aria-label','Hand camera preview. Tap to rotate the image until it matches the real view.');
+        prevCv=document.createElement('canvas');prevCv.width=128;prevCv.height=72;prevCtx=prevCv.getContext('2d');prevLbl=document.createElement('span');prevLbl.textContent='Waiting for camera…';prevEl.append(prevCv,prevLbl);
+        prevEl.onclick=()=>{handMode=(handMode+1)%8;try{localStorage.setItem('ar_hand_mode',String(handMode));}catch(_){}handMiss=0;status('Preview orientation '+(handMode+1)+'/8. Tap until it looks like the real camera view (upright, not mirrored).');};
+        overlay.appendChild(prevEl);
+      };
+      const drawPreview=(lm,label)=>{if(!prevEl||!capCanvas)return;const w=128,h=Math.max(40,Math.round(128*capDH/capDW));if(prevCv.width!==w||prevCv.height!==h){prevCv.width=w;prevCv.height=h;}
+        prevCtx.drawImage(capCanvas,0,0,w,h);if(lm){prevCtx.fillStyle='#4cff7a';for(const p of lm){prevCtx.fillRect(p.x*w-2,p.y*h-2,4,4);}}prevLbl.textContent=label;};
+      const loadHandLandmarker=async()=>{
+        const base='https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14';
+        const mod=await import(base+'/vision_bundle.mjs');
+        const fileset=await mod.FilesetResolver.forVisionTasks(base+'/wasm');
+        const opts=delegate=>({baseOptions:{modelAssetPath:'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task',delegate},runningMode:'VIDEO',numHands:1,minHandDetectionConfidence:.5,minHandPresenceConfidence:.5,minTrackingConfidence:.5});
+        try{return await mod.HandLandmarker.createFromOptions(fileset,opts('GPU'));}catch(_){return await mod.HandLandmarker.createFromOptions(fileset,opts('CPU'));}
+      };
+      const objCenter=(o,out)=>out.set(o.root.position.x,o.root.position.y+o.size.y*(o.scaleFactor||1)/2,o.root.position.z);
+      const beginReturn=()=>{if(!hand.obj||hand.state==='return')return;hand.state='return';hand.tgtPos.copy(hand.orig.pos);hand.tgtScale=hand.orig.scale;hand.speed=4;};
+      const releaseHand=(now)=>{const o=hand.obj;if(!o)return;if(now){o.root.position.copy(hand.orig.pos);o.scaled.scale.setScalar(hand.orig.scale);o._hand=false;o._handHome=null;hand.obj=null;hand.state='idle';}else beginReturn();};
+      const startHold=(o,mode)=>{hand.obj=o;o._hand=true;o._handHome={position:o.root.position.clone()};hand.orig={pos:o.root.position.clone(),scale:o.scaled.scale.x};hand.state=mode;hand.tgtPos.copy(o.root.position);hand.tgtScale=mode==='palm'?.09/Math.max(o.size.x,o.size.y,o.size.z,.001):hand.orig.scale;hand.speed=mode==='palm'?9:14;};
+      const handAnimate=(dt)=>{const o=hand.obj;if(!o)return;if(!objects.includes(o)){hand.obj=null;hand.state='idle';return;}
+        const k=1-Math.exp(-dt*hand.speed);o.root.position.lerp(hand.tgtPos,k);const s=o.scaled.scale.x;o.scaled.scale.setScalar(s+(hand.tgtScale-s)*(1-Math.exp(-dt*hand.speed*.8)));
+        if(hand.state==='return'&&o.root.position.distanceTo(hand.orig.pos)<.004&&Math.abs(o.scaled.scale.x-hand.orig.scale)<.003){releaseHand(true);hand.pinch=false;hand.palmSince=0;status('Back in its place.');}};
+      let handRequest=0;
+      const setHand=async(on)=>{
+        const request=++handRequest;
+        if(!on){handOn=false;handBtn.classList.remove('active');releaseHand(false);showPreview(false);status('Hand control off.');return;}
+        const enabled=session?.enabledFeatures;const camOk=handReady||!enabled||Array.from(enabled).includes('camera-access');
+        if(!camOk){status('This AR session did not grant camera access. Hand tracking is unavailable on this browser/device; touch controls remain available.');return;}
+        if(typeof XRWebGLBinding==='undefined'){status('This browser does not support camera access in AR.');return;}
+        if(!handLM){try{status('Loading hand tracking (internet needed, first time only)…');setLoading(8,'Loading hand tracking…');handBtn.disabled=true;try{handLM=await loadHandLandmarker();window.__arHandLM=handLM;}finally{handBtn.disabled=false;}setLoading(100,'Hand tracking ready',false);}
+          catch(err){console.warn('Hand tracking',err);setLoading(100,'',false);status('Hand tracking could not load: '+(err&&err.message||'check your internet connection')+'.');return;}}
+        if(ended||request!==handRequest)return;handOn=true;handMiss=0;handNoCam=0;handBtn.classList.add('active');showPreview(true);
+        status('Hand control on. Check the small preview: tap it until the image matches the real view. Then pinch next to a model to pick it up, or show your open palm.');
+      };
+      handBtn.onclick=()=>{setHand(!handOn);};
+      /* ---- read the XR camera image into a small canvas (raw GL, with every touched state restored) ---- */
+      const captureCam=(tracking)=>{
+        const view=tracking.views&&tracking.views[0],cam=view&&view.camera;if(!cam)return false;handReady=true;
+        const gl=renderer.getContext();
+        if(!handBinding){handBinding=new XRWebGLBinding(session,gl);}
+        const tex=handBinding.getCameraImage(cam);if(!tex)return false;
+        const ow=320,oh=Math.max(80,Math.round(ow*cam.height/cam.width));
+        const prog0=gl.getParameter(gl.CURRENT_PROGRAM),vao0=gl.getParameter(gl.VERTEX_ARRAY_BINDING),fbo0=gl.getParameter(gl.FRAMEBUFFER_BINDING),vp0=gl.getParameter(gl.VIEWPORT),act0=gl.getParameter(gl.ACTIVE_TEXTURE);
+        const read0=gl.getParameter(gl.READ_FRAMEBUFFER_BINDING),draw0=gl.getParameter(gl.DRAW_FRAMEBUFFER_BINDING),pack0=gl.getParameter(gl.PIXEL_PACK_BUFFER_BINDING),mask0=gl.getParameter(gl.COLOR_WRITEMASK);
+        const caps=[gl.BLEND,gl.DEPTH_TEST,gl.SCISSOR_TEST,gl.CULL_FACE,gl.STENCIL_TEST].map(cap=>[cap,gl.isEnabled(cap)]);
+        gl.activeTexture(gl.TEXTURE0);const tex0=gl.getParameter(gl.TEXTURE_BINDING_2D);
+        try{
+          if(!capProg){
+            const mkS=(t,src)=>{const sh=gl.createShader(t);gl.shaderSource(sh,src);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(sh));return sh;};
+            capProg=gl.createProgram();gl.attachShader(capProg,mkS(gl.VERTEX_SHADER,'#version 300 es\nout vec2 uv;void main(){vec2 p=vec2(float((gl_VertexID<<1)&2),float(gl_VertexID&2));uv=p;gl_Position=vec4(p*2.-1.,0.,1.);}'));
+            gl.attachShader(capProg,mkS(gl.FRAGMENT_SHADER,'#version 300 es\nprecision mediump float;in vec2 uv;uniform sampler2D t;out vec4 o;void main(){o=vec4(texture(t,uv).rgb,1.);}'));
+            gl.linkProgram(capProg);if(!gl.getProgramParameter(capProg,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(capProg));
+            capLoc=gl.getUniformLocation(capProg,'t');capVao=gl.createVertexArray();capFbo=gl.createFramebuffer();capTex=gl.createTexture();
+          }
+          if(capW!==ow||capH!==oh){
+            capW=ow;capH=oh;gl.bindTexture(gl.TEXTURE_2D,capTex);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,ow,oh,0,gl.RGBA,gl.UNSIGNED_BYTE,null);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+            gl.bindFramebuffer(gl.FRAMEBUFFER,capFbo);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,capTex,0);
+            capBuf=new Uint8Array(ow*oh*4);capCanvas=capCanvas||document.createElement('canvas');capImg=null;
+          }
+          caps.forEach(([cap])=>gl.disable(cap));gl.colorMask(true,true,true,true);gl.bindBuffer(gl.PIXEL_PACK_BUFFER,null);
+          gl.bindFramebuffer(gl.FRAMEBUFFER,capFbo);gl.viewport(0,0,ow,oh);gl.useProgram(capProg);gl.bindVertexArray(capVao);gl.bindTexture(gl.TEXTURE_2D,tex);gl.uniform1i(capLoc,0);gl.drawArrays(gl.TRIANGLES,0,3);
+          gl.readPixels(0,0,ow,oh,gl.RGBA,gl.UNSIGNED_BYTE,capBuf);
+        }finally{
+          gl.bindTexture(gl.TEXTURE_2D,tex0);gl.activeTexture(act0);gl.bindVertexArray(vao0);gl.useProgram(prog0);gl.bindFramebuffer(gl.READ_FRAMEBUFFER,read0);gl.bindFramebuffer(gl.DRAW_FRAMEBUFFER,draw0);gl.bindBuffer(gl.PIXEL_PACK_BUFFER,pack0);gl.colorMask(...mask0);caps.forEach(([cap,on])=>on?gl.enable(cap):gl.disable(cap));gl.viewport(vp0[0],vp0[1],vp0[2],vp0[3]);
+        }
+        {const rot=handMode&3,flip=(handMode>>2)&1,W=capW,H=capH,dw=(rot&1)?H:W,dh=(rot&1)?W:H;
+          if(capCanvas.width!==dw||capCanvas.height!==dh||!capImg||capImg.width!==dw||capImg.height!==dh){capCanvas.width=dw;capCanvas.height=dh;capImg=new ImageData(dw,dh);capCtx=capCanvas.getContext('2d',{willReadFrequently:true});}
+          const src=new Uint32Array(capBuf.buffer),dst=new Uint32Array(capImg.data.buffer);
+          for(let dy=0;dy<dh;dy++){const row=dy*dw;for(let dx=0;dx<dw;dx++){const ux=flip?dw-1-dx:dx;let sx,sy;if(rot===0){sx=ux;sy=dy;}else if(rot===1){sx=dy;sy=H-1-ux;}else if(rot===2){sx=W-1-ux;sy=H-1-dy;}else{sx=W-1-dy;sy=ux;}dst[row+dx]=src[(H-1-sy)*W+sx];}}
+          capCtx.putImageData(capImg,0,0);capDW=dw;capDH=dh;}
+        return true;
+      };
+      const cameraPoint=(x,y)=>{const u=(handMode>>2)&1?1-x:x;switch(handMode&3){case 1:return {x:y,y:1-u};case 2:return {x:1-u,y:1-y};case 3:return {x:1-y,y:u};default:return {x:u,y};}};
+      const worldAt=(nx,ny,Z,out)=>{const p=cameraPoint(nx,ny);_ndc.set(p.x*2-1,-(p.y*2-1));camera.updateMatrixWorld();camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();_ray.setFromCamera(_ndc,camera);return _ray.ray.at(Z,out);};
+      const pickForHand=(nx,ny,Z)=>{
+        if(recoveringPositions||objects.some(o=>!o.placed))return null;
+        worldAt(nx,ny,Z,_h3);let best=null,distance=Infinity;
+        for(const o of objects){
+          if(!o.placed||o.hidden||o.locked||!o.root.visible||o===hand.obj)continue;
+          o.root.updateMatrixWorld(true);_inv.copy(o.root.matrixWorld).invert();_h1.copy(_h3).applyMatrix4(_inv);
+          const k=o.scaleFactor||1;_box.min.set(-o.size.x*k/2,0,-o.size.z*k/2);_box.max.set(o.size.x*k/2,o.size.y*k,o.size.z*k/2);
+          _box.clampPoint(_h1,_h2);const d=_h1.distanceTo(_h2);
+          if(d<Math.min(.20,.08+Z*.12)&&d<distance){best=o;distance=d;}
+        }return best;
+      };
+      const handProcess=(res,time)=>{
+        const lm=res&&res.landmarks&&res.landmarks[0];
+        if(!lm){handMiss++;hand.palmSince=0;hand.pinchSince=0;hand.pinch=false;
+          if((hand.state==='palm'&&time-hand.lastSeen>450)||(hand.state==='grab'&&time-hand.lastSeen>600))beginReturn();
+          drawPreview(null,'mode '+(handMode+1)+'/8 · no hand');return;}
+        handMiss=0;hand.lastSeen=time;drawPreview(lm,'mode '+(handMode+1)+'/8 · hand '+(hand.pinch?'pinch':'seen'));
+        const W=capDW,H=capDH,px=(a,b)=>Math.hypot((lm[a].x-lm[b].x)*W,(lm[a].y-lm[b].y)*H);
+        const palm=px(0,9)||1,pr=px(4,8)/palm,ext=[[8,6],[12,10],[16,14],[20,18]].filter(p=>px(0,p[0])>px(0,p[1])*1.18).length;
+        if(hand.pinch){if(pr>.55)hand.pinch=false;}else if(pr<.32)hand.pinch=true;
+        const open=ext>=4&&pr>.6;if(open)hand.lastOpen=time;
+        const world=res.worldLandmarks?.[0],palmMetres=world?Math.hypot(world[0].x-world[9].x,world[0].y-world[9].y,world[0].z-world[9].z):.095;
+        const fpx=camera.projectionMatrix.elements[5]*(capH||H)/2,Z=Math.max(.12,Math.min(2.5,Math.max(.055,Math.min(.12,palmMetres))*fpx/palm));
+        const pn={x:(lm[4].x+lm[8].x)/2,y:(lm[4].y+lm[8].y)/2};
+        if(hand.state==='idle'){
+          if(hand.pinch){if(!hand.pinchSince)hand.pinchSince=time;const o=time-hand.pinchSince>=100?pickForHand(pn.x,pn.y,Z):null;if(o){worldAt(pn.x,pn.y,Z,_h3);objCenter(o,_h1);hand.off.copy(_h1).sub(_h3);startHold(o,'grab');status('Holding '+o.name+'. Open your hand to put it back.');}}
+          else if(open&&selected&&pickForHand((lm[0].x+lm[9].x)/2,(lm[0].y+lm[9].y)/2,Z)===selected){if(!hand.palmSince)hand.palmSince=time;if(time-hand.palmSince>650){startHold(selected,'palm');status('On your palm. Move your hand away to put it back.');}}
+          else{hand.palmSince=0;hand.pinchSince=0;}
+        }else if(hand.state==='grab'){
+          if(!hand.pinch){beginReturn();status('Released. Sending it back…');}
+          else{worldAt(pn.x,pn.y,Z,_h3);_h3.add(hand.off);hand.tgtPos.set(_h3.x,_h3.y-hand.obj.size.y*(hand.obj.scaled.scale.x)/2,_h3.z);}
+        }else if(hand.state==='palm'){
+          if(open||ext>=3){const cx=(lm[0].x+lm[5].x+lm[17].x+lm[9].x)/4,cy=(lm[0].y+lm[5].y+lm[17].y+lm[9].y)/4;worldAt(cx,cy,Z,_h3);_ray.ray.direction&&_h3.addScaledVector(_ray.ray.direction,-.05);const o=hand.obj;hand.tgtPos.set(_h3.x,_h3.y-o.size.y*hand.tgtScale/2+.01,_h3.z);if(open)hand.lastOpen=time;}
+          if(time-hand.lastOpen>500){beginReturn();status('Sending it back…');}
+        }
+      };
+      const handDetect=(time,tracking)=>{
+        try{if(!captureCam(tracking)){handProcess(null,time);if(++handNoCam===25)status('The browser is not providing an AR camera image. Hand control cannot track a hand; use touch controls.');return;}handNoCam=0;const t0=performance.now(),res=handLM.detectForVideo(capCanvas,performance.now());handInterval=Math.min(400,Math.max(140,(performance.now()-t0)*3));handProcess(res,time);}
+        catch(err){console.warn('Hand detect',err);handInterval=500;if(time-handErrAt>4000){handErrAt=time;status('Hand tracking error: '+(err&&err.message||err));}}
+      };
+      const handTick=(time,frame,dt,tracking)=>{if(handOn&&handLM&&tracking&&time-handLast>handInterval){handLast=time;handDetect(time,tracking);}if(hand.obj&&hand.state!=='return'&&time-hand.lastSeen>650)beginReturn();handAnimate(dt);};
+      disposeHandTrackingLoss=()=>releaseHand(true);
+      disposeHands=()=>{++handRequest;handOn=false;releaseHand(true);showPreview(false);try{const gl=renderer.getContext();if(capProg){for(const shader of gl.getAttachedShaders(capProg)||[])gl.deleteShader(shader);gl.deleteProgram(capProg);}if(capFbo)gl.deleteFramebuffer(capFbo);if(capTex)gl.deleteTexture(capTex);if(capVao)gl.deleteVertexArray(capVao);}catch(_){}capBuf=null;capCanvas=null;capImg=null;};
+      const pointerDown=e=>{if(e.target.closest('button,input,label'))return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});try{gesture.setPointerCapture(e.pointerId);}catch(_){}
+        if(pointers.size>=2){drag=null;if(selected&&selected.placed&&!recoveringPositions&&ringActive){if(selected.locked)isLocked();else{const pts=Array.from(pointers.values());pinchStart=Math.hypot(pts[0].x-pts[1].x,pts[0].y-pts[1].y)||1;pinchScale=selected.scaleFactor;}}}
+        else{drag={id:e.pointerId,x0:e.clientX,y0:e.clientY,t0:performance.now(),mode:null,moved:false,changed:false};
+          if(!recoveringPositions&&!(selected&&!selected.placed)){
+            if(ringActive&&selected&&selected.placed&&!selected.hidden&&!selected.locked){const c=selected.root.position,g=groundAt(e.clientX,e.clientY,c.y);
+              if(g){const d=Math.hypot(g.x-c.x,g.z-c.z),R=ringRadius(selected);if(d>R*.78&&d<R*1.3+.04){drag.mode='rotate';drag.a0=Math.atan2(g.x-c.x,g.z-c.z);}}}
+            if(!drag.mode){const ho=hitObject(e.clientX,e.clientY);
+              if(ho){if(ho!==selected)selectObject(ho);ringActive=true;
+                if(ho.locked)drag.lockedTouch=true;
+                else{const c2=ho.root.position,g2=groundAt(e.clientX,e.clientY,c2.y);if(g2){drag.mode='move';drag.dx=c2.x-g2.x;drag.dz=c2.z-g2.z;}}}}}}
+        e.preventDefault();};
+      const pointerMove=e=>{if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+        if(pointers.size>=2){if(selected&&selected.placed&&ringActive&&!selected.locked&&!recoveringPositions&&pinchStart){const pts=Array.from(pointers.values()),d=Math.hypot(pts[0].x-pts[1].x,pts[0].y-pts[1].y);updateScale(selected,pinchScale*d/Math.max(1,pinchStart));}}
+        else if(drag&&drag.id===e.pointerId){if(Math.hypot(e.clientX-drag.x0,e.clientY-drag.y0)>8)drag.moved=true;
+          if(drag.moved&&drag.lockedTouch&&!drag.warned){drag.warned=true;isLocked();}
+          if(drag.moved&&drag.mode&&selected&&!selected.locked){const c=selected.root.position,g=groundAt(e.clientX,e.clientY,c.y);
+            if(g){if(drag.mode==='move'){dropAnchor(selected);c.x=g.x+drag.dx;c.z=g.z+drag.dz;}
+              else{const a=Math.atan2(g.x-c.x,g.z-c.z);let da=a-drag.a0;if(da>Math.PI)da-=2*Math.PI;if(da<-Math.PI)da+=2*Math.PI;selected.root.rotation.y+=da;drag.a0=a;}
+              drag.changed=true;}}}
+        e.preventDefault();};
+      const pointerUp=e=>{if(!pointers.has(e.pointerId))return;pointers.delete(e.pointerId);
+        if(drag&&drag.id===e.pointerId){const quick=!drag.moved&&performance.now()-drag.t0<500;
+          if(drag.changed)saveSoon();
+          else if(quick&&e.type==='pointerup'&&!recoveringPositions&&!(selected&&!selected.placed)){const ho=hitObject(e.clientX,e.clientY);if(ho){if(ho!==selected)selectObject(ho);ringActive=true;}else if(ringActive){ringActive=false;status('Deselected. Tap a model to select it again.');}}
+          drag=null;}
+        if(pointers.size<2){if(pinchStart)saveSoon();pinchStart=0;}};
+      gesture.addEventListener('pointerdown',pointerDown);gesture.addEventListener('pointermove',pointerMove);gesture.addEventListener('pointerup',pointerUp);gesture.addEventListener('pointercancel',pointerUp);
       place.onclick=placeSelected;
       overlay.querySelector('[data-move]').onclick=()=>{if(recoveringPositions){status('Align the saved scene first.');return;}if(!selected||isLocked())return;if(selected.anchor&&selected.anchor.delete)try{selected.anchor.delete();}catch(_){}selected.anchor=null;selected.anchorHandle=null;selected.root.visible=false;selected.placed=false;canPlace=false;if(previewRoot)previewRoot.visible=false;place.disabled=true;place.textContent='Confirm move';status('Scan a new floor or table spot, then confirm the new position.');};
       overlay.querySelector('[data-duplicate]').onclick=()=>{if(recoveringPositions){status('Align the saved scene first.');return;}if(!selected){return;}const copy=makeObject(selected.asset,(selected.name||'Object')+' copy',selected);objects.push(copy);selected=copy;canPlace=false;if(previewRoot)previewRoot.visible=false;place.disabled=true;place.textContent='Place copy';updateLayerList();buildPreview();overlay.querySelector('[data-auto-rotate]').classList.toggle('active',!!copy.autoRotate);status('Copy created. Scan another surface and confirm its position.');};
-      overlay.querySelector('[data-small]').onclick=()=>{if(selected&&!isLocked()){updateScale(selected,selected.scaleFactor/1.2);arCheckpoint(captureResumeState());}};
-      overlay.querySelector('[data-large]').onclick=()=>{if(selected&&!isLocked()){updateScale(selected,selected.scaleFactor*1.2);arCheckpoint(captureResumeState());}};
-      overlay.querySelector('[data-turn]').onclick=()=>{if(selected&&!isLocked()){selected.root.rotation.y+=Math.PI/8;arCheckpoint(captureResumeState());}};
+      overlay.querySelector('[data-small]').onclick=()=>{if(selected&&!isLocked()){updateScale(selected,selected.scaleFactor/1.2);saveSoon();}};
+      overlay.querySelector('[data-large]').onclick=()=>{if(selected&&!isLocked()){updateScale(selected,selected.scaleFactor*1.2);saveSoon();}};
+      overlay.querySelector('[data-turn]').onclick=()=>{if(selected&&!isLocked()){selected.root.rotation.y+=Math.PI/8;saveSoon();}};
       overlay.querySelector('[data-auto-rotate]').onclick=()=>{if(selected){selected.autoRotate=!selected.autoRotate;overlay.querySelector('[data-auto-rotate]').classList.toggle('active',selected.autoRotate);status(selected.autoRotate?'Continuous rotation is on for '+selected.name+'.':'Continuous rotation is off.');}};
       overlay.querySelector('.ar-materials').addEventListener('click',e=>{const b=e.target.closest('[data-ar-material]');if(!b||!selected)return;let choice;if(b.dataset.arMaterial==='preset')choice={kind:'preset',id:b.dataset.arMaterialId};else if(b.dataset.arMaterial==='finish')choice={kind:'finish',id:b.dataset.arMaterialId};else if(b.dataset.arMaterial==='reference')choice=slot._override;else choice={kind:'restore'};try{materialPreset(selected,choice);overlay.querySelector('.ar-materials').hidden=true;status('Material updated for '+selected.name+' only.');}catch(err){console.warn('Could not apply AR material',err);status('Could not apply that material to '+selected.name+'.');showToast('Could not apply that material in AR.');}});
 
@@ -3138,42 +3468,49 @@ row.append(b,sb,lk,del,sl);list.appendChild(row);});
         }));}catch(_){}
         return out;
       };
-      const closePick=()=>{const d=overlay.querySelector('.ar-pick');if(d)d.remove();};
-      const openFolder=async()=>{
-        closePick();if(slot._arPickerTransition)return;
-        slot._arPickerTransition=true;
-        status('Saving all models before opening the file manager…');
-        try{
-          slot._arResumeState={...captureResumeState(),phase:'picking',_needsReposition:true};
-          if(!await arCheckpoint(slot._arResumeState))throw new Error('Recovery storage is unavailable or full.');
-          if(slot._arExplicitExit)return;
+      const closePick=()=>overlay.querySelector('.ar-pick')?.remove();
+      let preparedPicker=null;
+      const saveForPicker=async()=>{
+        if(preparedPicker)return preparedPicker;
+        preparedPicker=(async()=>{
+          const first={...captureResumeState(),phase:'picking',_needsReposition:true};
+          if(!await arCheckpoint(first))throw new Error('Recovery storage is unavailable or full.');
           recoveryViews=await captureARViews(slot);
-          if(slot._arExplicitExit)return;
           const snapshot={...captureResumeState(),phase:'picking',_needsReposition:true};
           if(!await arCheckpoint(snapshot))throw new Error('Recovery storage is unavailable or full.');
-          slot._arResumeState=snapshot;
-          if(session)await session.end();
-          cleanup();slot._arPickerTransition=false;
-          prepareARFilePicker(slot,snapshot);
-        }catch(err){
-          slot._arPickerTransition=false;showToast('Could not safely open Files: '+err.message);
-          status('Backup failed. Your current AR scene is still here.');
-        }
+          return snapshot;
+        })();return preparedPicker;
+      };
+      const openFolder=snapshot=>{
+        if(slot._arPickerTransition||ended)return;
+        closePick();slot._arPickerTransition=true;slot._arResumeState=snapshot;
+        const input=document.createElement('input');input.type='file';input.multiple=true;input.hidden=true;input.accept=fileInput.accept;
+        document.body.appendChild(input);slot._arFileInput=input;slot._arPickerPending=true;
+        const picked=async()=>{
+          const files=Array.from(input.files||[]);input.remove();slot._arPickerPending=false;
+          if(!files.length){slot._arPickerTransition=false;slot._arResumeState=null;if(ended){slot._arPending={...snapshot,phase:'ready'};showHandoff(slot,'Your previous models are saved.');setHandoffResumeAction(slot);handoffFail(slot);}return;}
+          // Checkpoint raw Files before either conversion or ending the surviving XR session.
+          const staged={...snapshot,pendingFiles:files,phase:'converting'};slot._arResumeState=staged;slot._arPending=staged;
+          const saved=await arCheckpoint(staged);
+          if(!saved){slot._arPickerTransition=false;showToast('Could not save the selected file. Previous models are retained.');return;}
+          if(session&&!ended)try{await session.end();}catch(_){}cleanup();slot._arPickerTransition=false;
+          showHandoff(slot,'Preparing the selected model…');
+          try{await finishARFileSelection(slot,snapshot,files);}catch(err){showToast(err.message);prepareARFilePicker(slot,slot._arPending||snapshot);}
+        };
+        input.addEventListener('change',picked,{once:true});input.addEventListener('cancel',picked,{once:true});
+        try{input.click();}catch(err){slot._arPickerTransition=false;slot._arPickerPending=false;input.remove();showToast(err.message);}
       };
       const addFromView=async(it)=>{
-        closePick();let url=null;
+        closePick();
         try{
-          status('Preparing '+it.name+'…');setLoading(8,'Preparing '+it.name+'…');
+          const snapshot=await saveForPicker();
           const blob=await it.slot.viewer.exportScene({binary:true,onlyVisible:true,maxTextureSize:2048});
-          if(ended)return;
-          const loaded=await parseARBlob(blob,'Decoding '+it.name+'…');if(ended)return;
-          setLoading(90,'Preparing new object…');
-          const obj=makeObject({scene:loaded.scene,THREE,sourceBlob:blob},it.name.replace(/\.[a-z0-9]+$/i,''));
-          objects.push(obj);selected=obj;canPlace=false;place.disabled=true;place.textContent='Place new item';
-          updateLayerList();buildPreview();overlay.querySelector('[data-auto-rotate]').classList.remove('active');
-          setLoading(100,'Model ready',false);status('Added '+obj.name+'. The previous models remain in place. Scan a surface to position the new model.');
-        }catch(err){console.warn('Could not add model from view',err);setLoading(100,'Could not add model',false);status('Could not add that model.');}
-        finally{if(url)URL.revokeObjectURL(url);}
+          const state={...snapshot,phase:'ready'};slot._arPickerTransition=true;slot._arResumeState=state;
+          if(session&&!ended)await session.end();cleanup();slot._arPickerTransition=false;
+          const item={sourceBlob:blob,name:it.name,preflightDone:true};
+          const ready={...state,queue:[...(state.queue||[]),...(item?[item]:[])]};
+          slot._arPending=ready;await arCheckpoint(ready);showHandoff(slot,'Models ready for AR');setHandoffResumeAction(slot);handoffFail(slot);
+        }catch(err){showToast('Could not add model: '+err.message);}
       };
       overlay.querySelector('[data-add]').onclick=()=>{
         if(recoveringPositions){status('Align the previous models before adding a new one.');return;}
@@ -3193,7 +3530,9 @@ row.append(b,sb,lk,del,sl);list.appendChild(row);});
         }
         const fl=document.createElement('div');fl.className='ar-pick-subhead';fl.textContent='File manager';d.appendChild(fl);
         const fb=document.createElement('button');fb.type='button';fb.className='ar-pick-folder';fb.innerHTML=svg('arFolder');
-        const ft=document.createElement('span');ft.textContent='Browse files / Add new model';fb.appendChild(ft);fb.onclick=openFolder;d.appendChild(fb);
+        const ft=document.createElement('span');ft.textContent='Saving scene…';fb.appendChild(ft);fb.disabled=true;d.appendChild(fb);
+        preparedPicker=null;
+        saveForPicker().then(snapshot=>{if(!d.isConnected)return;ft.textContent='Browse files / Add new model';fb.disabled=false;fb.onclick=()=>openFolder(snapshot);}).catch(err=>{ft.textContent='Backup failed';showToast('Could not safely open Files: '+err.message);});
         const cb=document.createElement('button');cb.type='button';cb.className='ar-pick-cancel';cb.textContent='Cancel';cb.onclick=closePick;d.appendChild(cb);
         overlay.appendChild(d);
       };
@@ -3202,17 +3541,24 @@ row.append(b,sb,lk,del,sl);list.appendChild(row);});
       const _am=new THREE.Matrix4();let lastTime=0;
       renderer.setAnimationLoop((time,frame)=>{
         if(ended||!frame)return;const dt=lastTime?Math.min(.05,(time-lastTime)/1000):0;lastTime=time;const ref=renderer.xr.getReferenceSpace(),tracking=frame.getViewerPose(ref);
-        if(!tracking){ring.visible=false;if(previewRoot)previewRoot.visible=false;canPlace=false;place.disabled=true;status('Tracking paused · keep the camera moving slowly in a well-lit area.');renderer.render(scene,camera);return;}
+        if(!tracking){disposeHandTrackingLoss();updateWaves(false,time);ring.visible=false;if(previewRoot)previewRoot.visible=false;canPlace=false;place.disabled=true;status('Tracking paused · keep the camera moving slowly in a well-lit area.');renderer.render(scene,camera);return;}
         /* Update anchored objects from the XR runtime; retain their last pose if tracking temporarily drops. */
-        for(const obj of objects){if(obj.anchor){try{const ap=frame.getPose(obj.anchor.anchorSpace,ref);if(ap){_am.fromArray(ap.transform.matrix);obj.root.position.setFromMatrixPosition(_am);}}catch(_){}}if(obj.autoRotate&&obj.placed)obj.root.rotation.y+=dt*.65;}
-        const hits=frame.getHitTestResults(hitSource);lastHit=hits&&hits.length?hits[0]:null;const pose=lastHit&&lastHit.getPose(ref);canPlace=!!pose&&pose.transform.matrix[5]>.85;
+        for(const obj of objects){if(obj.anchor&&!obj._hand){try{const ap=frame.getPose(obj.anchor.anchorSpace,ref);if(ap){_am.fromArray(ap.transform.matrix);obj.root.position.setFromMatrixPosition(_am);if(obj._awaitAnchorPose){obj._awaitAnchorPose=false;obj.root.visible=!obj.hidden;}}}catch(_){}}if(obj.autoRotate&&obj.placed)obj.root.rotation.y+=dt*.65;}
+        for(const obj of objects){if(!obj._awaitAnchorPose)continue;if(obj._anchorWaitAt==null)obj._anchorWaitAt=time;
+          if(time-obj._anchorWaitAt>8000){dropAnchor(obj);obj._awaitAnchorPose=false;obj.placed=false;obj.root.visible=false;selected=objects.find(o=>!o.placed)||obj;place.textContent='Place previous model';updateLayerList();buildPreview();saveSoon();}}
+        if(pendingQueue.length&&!loadingQueue&&objects.every(o=>o.placed&&!o._awaitAnchorPose))loadNextQueued();
+        const arView=tracking.views?.[0];
+        if(arView?.projectionMatrix&&arView?.transform?.matrix){camera.projectionMatrix.fromArray(arView.projectionMatrix);camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();camera.matrixWorld.fromArray(arView.transform.matrix);camera.matrixWorld.decompose(camera.position,camera.quaternion,camera.scale);camera.matrixWorldInverse.copy(camera.matrixWorld).invert();}
+        updateSelRing();handTick(time,frame,dt,tracking);const hits=frame.getHitTestResults(hitSource);lastHit=hits&&hits.length?hits[0]:null;const pose=lastHit&&lastHit.getPose(ref);canPlace=!!pose&&pose.transform.matrix[5]>.85;
         if(canPlace&&pose){previewMatrix.fromArray(pose.transform.matrix);const needsPlacement=!!selected&&(!selected.placed||recoveringPositions);ring.visible=needsPlacement;ring.matrix.copy(previewMatrix);if(previewRoot&&needsPlacement&&!selected.placed&&!recoveringPositions){previewRoot.position.setFromMatrixPosition(previewMatrix);previewRoot.rotation.copy(selected.root.rotation);previewRoot.visible=true;}}else{ring.visible=false;if(previewRoot)previewRoot.visible=false;}
         {const pd=!(canPlace&&selected&&(!selected.placed||recoveringPositions));if(place.disabled!==pd)place.disabled=pd;}
-        if(recoveringPositions)status(canPlace?'Move to the ORIGINAL position of '+recoveryRef.name+', then tap “Align previous models”.':'AR resumed. Scan the ORIGINAL spot of '+recoveryRef.name+' to restore the saved layout.');
+        updateWaves(canPlace&&!!selected&&(!selected.placed||recoveringPositions),time);
+        if(objects.some(o=>o._awaitAnchorPose))status('Waiting for saved spatial anchors. If tracking cannot recover, place the previous model again.');
+        else if(recoveringPositions)status(canPlace?'Move to the ORIGINAL position of '+recoveryRef.name+', then tap “Align previous models”.':'AR resumed. Scan the ORIGINAL spot of '+recoveryRef.name+' to restore the saved layout.');
         else if(selected&&!selected.placed)status(canPlace?'Surface detected · confirm to place the shadow preview.':'Scan slowly across a floor or table in good lighting.');
         renderer.render(scene,camera);
       });
-      status(recoveringPositions?'The file manager restarted AR. Existing objects are safely hidden until you scan the ORIGINAL spot of '+recoveryRef.name+' and tap Align previous models.':(resumeState&&resumeState._needsReposition?'Previous placement restored using persistent anchors.':'Scan the floor or table, then confirm the product position.'));
+      status(recoveringPositions?'The file manager restarted AR. Existing objects are safely hidden until you scan the ORIGINAL spot of '+recoveryRef.name+' and tap Align previous models.':(resumeState&&resumeState._needsReposition?(objects.some(o=>!o.placed)?'Place the previous models first, then place the new model.':'Restoring previous positions from persistent anchors…'):'Scan the floor or table, then confirm the product position.'));
       if(pendingQueue.length&&selected&&selected.placed)loadNextQueued();
       await done;
     }catch(err){console.warn('AR',err);if(!ended){slot._arError=err.name==='NotAllowedError'?'Camera permission was denied. Allow AR access and try again.':(err&&err.message)||arHelpText();showToast(slot._arError);}try{if(slot._arCover)handoffFail(slot,slot._arError||'Tap to continue in AR');}catch(_){}if(session&&!ended)try{await session.end();}catch(_){}cleanup();}
@@ -12620,7 +12966,14 @@ function readXform(obj){
 
   async function showARRecoveryOnStartup(){
     const saved=await arReadCheckpoint(),state=saved?.state;
-    if(!state||!(state.items?.length||state.queue?.length))return;
+    const site=await arSiteRead(),siteViews=(site&&Date.now()-site.at<3*3600*1000&&site.state?.views?.slots?.length)?site.state.views:null;
+    if(!state||!(state.items?.length||state.queue?.length)){
+      /* AR was left normally but the page was discarded: rebuild every view exactly, with no questions. */
+      if(siteViews&&!panes.some(p=>p.slots.some(sl=>sl.viewer?.src))){try{await restoreARViews({views:siteViews,items:[],queue:[]});}catch(err){console.warn('Silent view restore',err);}}
+      if(site)await arSiteDelete();
+      return;
+    }
+    if(siteViews&&!state.views)state.views=siteViews;
     const initial=panes[0]?.slots[0];if(!initial)return;
     const restore=async()=>{
       showHandoff(initial,'Restoring your saved models…');
